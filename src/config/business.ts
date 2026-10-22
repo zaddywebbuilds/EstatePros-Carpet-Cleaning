@@ -86,10 +86,10 @@ export const business = {
   // These are concept visualizations, NOT photographs of completed jobs.
   // Swap in matched real client pairs once the owner supplies them.
   // Cleaning process shown on the Services page.
-  // DRAFT WORDING - set confirmed: true only once the owner has agreed these
-  // are the actual steps. While false the whole section stays off the site.
+  // Owner-confirmed 2026-10-22. Set confirmed back to false if the steps
+  // change, and the whole section drops off the site until re-approved.
   process: {
-    confirmed: false,
+    confirmed: true,
     steps: [
       {
         id: 'inspect',
