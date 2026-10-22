@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "node node_modules/vite/bin/vite.js",
-    "build": "node node_modules/vite/bin/vite.js build",
+    "build": "node node_modules/vite/bin/vite.js build && node scripts/prerender.mjs",
     "preview": "node node_modules/vite/bin/vite.js preview",
-    "typecheck": "node node_modules/typescript/bin/tsc -b"
+    "typecheck": "node node_modules/typescript/bin/tsc -b",
+    "prerender": "node scripts/prerender.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.3.19",

@@ -35,6 +35,9 @@ jobs:
       - name: Build
         run: npx vite build
 
+      - name: Prerender routes
+        run: node scripts/prerender.mjs
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
