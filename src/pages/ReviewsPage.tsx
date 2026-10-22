@@ -90,7 +90,7 @@ export default function ReviewsPage() {
             className="mt-20 p-8 bg-mist/60 rounded-2xl"
             initial={shouldReduce ? {} : { opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
+            viewport={{ once: true, margin: '240px' }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className="font-heading font-600 text-teal text-lg mb-3">Had a great experience?</p>

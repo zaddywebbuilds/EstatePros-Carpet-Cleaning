@@ -10,7 +10,7 @@ export default function EditorialAbout() {
   const reveal = (delay = 0) => ({
     initial: shouldReduce ? {} : { opacity: 0, y: 32 },
     whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: '-60px' },
+    viewport: { once: true, margin: '240px' },
     transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
   })
 
@@ -69,7 +69,7 @@ export default function EditorialAbout() {
               style={{ aspectRatio: '4/5' }}
               initial={shouldReduce ? {} : { opacity: 0, scale: 0.97, x: 20 }}
               whileInView={{ opacity: 1, scale: 1, x: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
+              viewport={{ once: true, margin: '240px' }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
               <img

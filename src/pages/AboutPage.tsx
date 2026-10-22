@@ -33,7 +33,7 @@ export default function AboutPage() {
   const reveal = (delay = 0) => ({
     initial: shouldReduce ? {} : { opacity: 0, y: 24 },
     whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: '-50px' },
+    viewport: { once: true, margin: '240px' },
     transition: { duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
   })
 
@@ -83,8 +83,8 @@ export default function AboutPage() {
           >
             <div className="rounded-3xl overflow-hidden shadow-float" style={{ aspectRatio: '4/3' }}>
               <img
-                src={`${BASE}/images/estatepros-hero-living-room.webp`}
-                alt="Calgary living room with pale carpet and daylight through tall windows"
+                src={`${BASE}/images/luxury-living-room.webp`}
+                alt="Open-plan living room with a sectional sofa and stone fireplace over pale carpet"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -142,7 +142,7 @@ export default function AboutPage() {
             className="relative"
             initial={shouldReduce ? {} : { opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: '240px' }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="rounded-3xl overflow-hidden" style={{ aspectRatio: '4/3' }}>

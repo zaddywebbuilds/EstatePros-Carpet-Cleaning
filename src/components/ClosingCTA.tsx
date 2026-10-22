@@ -29,7 +29,7 @@ export default function ClosingCTA() {
             className="font-ui text-xs font-600 tracking-[0.2em] uppercase text-ivory/50 mb-5"
             initial={shouldReduce ? {} : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: '240px' }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             Ready to Begin
@@ -41,7 +41,7 @@ export default function ClosingCTA() {
             style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', letterSpacing: '-0.01em' }}
             initial={shouldReduce ? {} : { opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: '240px' }}
             transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
           >
             Ready to feel the<br />
@@ -59,7 +59,7 @@ export default function ClosingCTA() {
             style={{ fontSize: 'clamp(0.9rem, 1.5vw, 1.05rem)' }}
             initial={shouldReduce ? {} : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: '240px' }}
             transition={{ duration: 0.6, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
           >
             Tell us about your carpets and we&rsquo;ll help you plan the next step.
@@ -70,7 +70,7 @@ export default function ClosingCTA() {
             className="flex flex-wrap gap-4"
             initial={shouldReduce ? {} : { opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: '240px' }}
             transition={{ duration: 0.6, delay: 0.24, ease: [0.22, 1, 0.36, 1] }}
           >
             <Link

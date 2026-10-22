@@ -34,7 +34,7 @@ export default function ServiceGrid() {
               className="service-card group"
               initial={shouldReduce ? {} : { opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
+              viewport={{ once: true, margin: '240px' }}
               transition={{ duration: 0.55, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
             >
               {/* Image */}
@@ -75,7 +75,7 @@ export default function ServiceGrid() {
             className="rounded-2xl border-2 border-dashed border-mist bg-mist/30 flex flex-col items-center justify-center text-center px-8 py-10 min-h-[320px]"
             initial={shouldReduce ? {} : { opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
+            viewport={{ once: true, margin: '240px' }}
             transition={{ duration: 0.55, delay: confirmedServices.length * 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="w-12 h-12 bg-teal/10 rounded-2xl flex items-center justify-center mb-5">

@@ -11,7 +11,7 @@ export default function TestimonialsSection() {
         <motion.div
           initial={shouldReduce ? {} : { opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={{ once: true, margin: '240px' }}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="section-eyebrow mb-5">Customer Feedback</p>

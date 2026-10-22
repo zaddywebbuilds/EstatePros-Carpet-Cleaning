@@ -25,7 +25,7 @@ export default function TrustBar() {
               className="surface flex items-start gap-4 px-6 py-6"
               initial={shouldReduce ? {} : { opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
+              viewport={{ once: true, margin: '240px' }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className="w-11 h-11 bg-mist rounded-2xl flex items-center justify-center shrink-0">

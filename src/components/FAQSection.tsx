@@ -46,7 +46,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
       className="border-b border-mist last:border-0"
       initial={shouldReduce ? {} : { opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-20px' }}
+      viewport={{ once: true, margin: '240px' }}
       transition={{ duration: 0.45, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
     >
       <button

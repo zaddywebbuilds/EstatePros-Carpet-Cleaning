@@ -68,8 +68,8 @@ export const business = {
       shortDesc: 'Targeted treatment for isolated stains and persistent odours.',
       confirmed: false,
       featured: false,
-      image: '/EstatePros-Carpet-Cleaning/images/carpet-spot-treatment.webp',
-      imageAlt: 'Gloved hand spraying a pre-treatment onto a marked patch of carpet',
+      image: '/EstatePros-Carpet-Cleaning/images/pet-stain-example.webp',
+      imageAlt: 'Dog resting on pale carpet beside a trail of dried paw marks',
     },
     {
       id: 'commercial-carpet-cleaning',
@@ -79,6 +79,15 @@ export const business = {
       featured: false,
       image: '/EstatePros-Carpet-Cleaning/images/commercial-carpet-cleaning.webp',
       imageAlt: 'Open-plan office with desks and glass partitions, carpet being cleaned along a walkway',
+    },
+    {
+      id: 'tile-grout-cleaning',
+      name: 'Tile & Grout Cleaning',
+      shortDesc: 'Hard floor and grout line cleaning for kitchens, entryways and bathrooms.',
+      confirmed: false,
+      featured: false,
+      image: '/EstatePros-Carpet-Cleaning/images/tile-grout-cleaning.webp',
+      imageAlt: 'Rotary hard floor tool cleaning large format tile and the grout lines between',
     },
   ],
 

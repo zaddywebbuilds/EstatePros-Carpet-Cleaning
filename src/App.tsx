@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { business } from './config/business'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import StickyQuoteBar from './components/StickyQuoteBar'
 import Home from './pages/Home'
 import ServicesPage from './pages/ServicesPage'
 import ServiceDetail from './pages/ServiceDetail'
@@ -31,6 +32,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <StickyQuoteBar />
     </BrowserRouter>
   )
 }

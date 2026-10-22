@@ -8,7 +8,7 @@ const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'Services', to: '/services' },
   { label: 'Our Approach', to: '/about' },
-  { label: 'Gallery', to: '/gallery' },
+  { label: 'Before & After', to: '/gallery' },
   { label: 'Reviews', to: '/reviews' },
   { label: 'Contact', to: '/contact' },
 ]
@@ -84,7 +84,7 @@ export default function Navbar() {
                   to={to}
                   end={to === '/'}
                   className={({ isActive }) =>
-                    `px-4 py-2 text-sm font-ui font-500 rounded-full transition-all duration-200 ${
+                    `whitespace-nowrap px-3.5 py-2 text-sm font-ui font-500 rounded-full transition-all duration-200 ${
                       isActive
                         ? 'text-teal bg-white/90 shadow-sm'
                         : 'text-stone hover:text-teal hover:bg-white/60'

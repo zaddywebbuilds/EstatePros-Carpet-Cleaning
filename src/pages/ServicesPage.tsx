@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Lock } from 'lucide-react'
 import { business } from '../config/business'
-import BeforeAfterSlider from '../components/BeforeAfterSlider'
 import ProcessTimeline from '../components/ProcessTimeline'
 
 const BASE = '/EstatePros-Carpet-Cleaning'
@@ -21,7 +20,7 @@ export default function ServicesPage() {
       : {
           initial: { opacity: 0, y: 20 },
           whileInView: { opacity: 1, y: 0 },
-          viewport: { once: true, margin: '-60px' },
+          viewport: { once: true, margin: '240px' },
           transition: { duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
         }
 
@@ -96,8 +95,10 @@ export default function ServicesPage() {
                 {...reveal(0.04)}
               >
                 <div
-                  className={`grid md:grid-cols-2 items-stretch ${
-                    flipped ? 'md:[&>*:first-child]:order-2' : ''
+                  className={`grid items-stretch ${
+                    flipped
+                      ? 'md:grid-cols-[1fr_0.82fr] md:[&>*:first-child]:order-2'
+                      : 'md:grid-cols-[0.82fr_1fr]'
                   }`}
                 >
                   <div className="relative min-h-[240px] md:min-h-[320px]">
@@ -167,46 +168,22 @@ export default function ServicesPage() {
       {/* Stays off the site until the owner confirms these are the real steps */}
       {business.process.confirmed && <ProcessTimeline />}
 
-      {/* Before / after sliders */}
-      <section className="px-4 sm:px-6 lg:px-8 py-10" aria-labelledby="comparisons-heading">
-        <div className="max-w-7xl mx-auto">
-          <motion.div className="max-w-2xl" {...reveal(0)}>
-            <p className="section-eyebrow mb-3">See The Difference</p>
-            <h2 id="comparisons-heading" className="section-heading text-teal">
-              Drag to compare
-            </h2>
-            <p className="mt-4 font-ui text-sm leading-relaxed text-stone">
-              Drag the handle, or focus it and use the arrow keys, to move between the before and
-              after state of each scene.
+      {/* Pointer to the comparisons, which live on their own page */}
+      <section className="px-4 sm:px-6 lg:px-8 py-6">
+        <div className="surface max-w-7xl mx-auto flex flex-col gap-5 px-7 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-10">
+          <div>
+            <p className="section-eyebrow mb-2">See The Difference</p>
+            <p className="font-heading text-teal text-2xl" style={{ fontWeight: 600 }}>
+              Drag through a before and after
             </p>
-          </motion.div>
-
-          <div
-            className="mt-8 rounded-4xl border border-champagne/35 bg-champagne/10 px-6 py-4"
-            role="note"
+          </div>
+          <Link
+            to="/gallery"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-teal px-7 py-3.5 font-sans text-sm text-ivory transition-all duration-300 hover:shadow-surface"
+            style={{ fontWeight: 600, letterSpacing: '0.02em' }}
           >
-            <p className="font-ui text-xs leading-relaxed text-ink/80">
-              <strong className="font-600">About these images:</strong> the comparisons below are
-              illustrative visualizations created to show the kind of change cleaning can make. They
-              are not photographs of completed EstatePros jobs, and they are not customer results.
-              They will be replaced with real matched pairs once project photography is available.
-            </p>
-          </div>
-
-          <div className="mt-8 grid sm:grid-cols-2 gap-6">
-            {business.comparisons.map((c, i) => (
-              <motion.div key={c.id} {...reveal(i * 0.06)}>
-                <BeforeAfterSlider
-                  title={c.title}
-                  caption={c.caption}
-                  beforeSrc={c.before}
-                  afterSrc={c.after}
-                  beforeAlt={c.beforeAlt}
-                  afterAlt={c.afterAlt}
-                />
-              </motion.div>
-            ))}
-          </div>
+            View comparisons <ArrowRight size={14} strokeWidth={2.5} />
+          </Link>
         </div>
       </section>
 

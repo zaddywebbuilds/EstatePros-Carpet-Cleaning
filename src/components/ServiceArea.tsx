@@ -21,7 +21,7 @@ export default function ServiceArea() {
           <motion.div
             initial={shouldReduce ? {} : { opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: '240px' }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className="section-eyebrow mb-4">Where We Work</p>
@@ -63,7 +63,7 @@ export default function ServiceArea() {
             className="surface p-8 sm:p-10"
             initial={shouldReduce ? {} : { opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: '240px' }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className="section-eyebrow mb-5">Coverage</p>

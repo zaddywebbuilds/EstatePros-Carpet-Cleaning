@@ -72,15 +72,17 @@ export default function Hero() {
 
       {/* Single anchoring image, held on a surface */}
       <motion.div
-        className="relative z-10 mx-auto mt-12 max-w-6xl overflow-hidden rounded-5xl border-[6px] border-white bg-white shadow-surface-lg"
+        className="relative z-10 mx-auto mt-12 max-w-5xl overflow-hidden rounded-5xl border-[6px] border-white bg-sand-deep shadow-surface-lg"
         initial={shouldReduce ? {} : { opacity: 0, y: 32 }}
         animate={shouldReduce ? {} : { opacity: 1, y: 0 }}
-        transition={{ duration: 0.85, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
       >
         <img
-          src={`${BASE}/images/luxury-living-room.webp`}
-          alt="Open Calgary living room with a sectional sofa, stone fireplace and pale wall-to-wall carpet"
+          src={`${BASE}/images/estatepros-hero-living-room.webp`}
+          alt="Bright Calgary living room with pale wall-to-wall carpet and daylight through tall windows"
           className="aspect-[16/8] w-full object-cover object-center"
+          width={768}
+          height={512}
           fetchPriority="high"
           decoding="async"
         />

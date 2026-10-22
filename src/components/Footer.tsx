@@ -6,7 +6,7 @@ const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'Services', to: '/services' },
   { label: 'Our Approach', to: '/about' },
-  { label: 'Gallery', to: '/gallery' },
+  { label: 'Before & After', to: '/gallery' },
   { label: 'Reviews', to: '/reviews' },
   { label: 'Contact', to: '/contact' },
 ]
@@ -19,7 +19,7 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="px-4 sm:px-6 lg:px-8 pb-6 text-ivory/80" role="contentinfo">
+    <footer className="px-4 sm:px-6 lg:px-8 pb-28 lg:pb-6 text-ivory/80" role="contentinfo">
       <div className="panel-deep max-w-7xl mx-auto px-6 sm:px-12 py-14">
         <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-10 mb-10">
 
