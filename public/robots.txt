@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Draft service pages - do not index until confirmed by owner
+Disallow: /EstatePros-Carpet-Cleaning/services/upholstery-cleaning
+Disallow: /EstatePros-Carpet-Cleaning/services/area-rug-cleaning
+Disallow: /EstatePros-Carpet-Cleaning/services/stain-odour-treatment
+Disallow: /EstatePros-Carpet-Cleaning/services/commercial-carpet-cleaning
+
+Sitemap: https://zaddywebbuilds.github.io/EstatePros-Carpet-Cleaning/sitemap.xml
