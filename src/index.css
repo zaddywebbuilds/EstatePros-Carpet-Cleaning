@@ -127,6 +127,32 @@
     transform: translateY(-4px);
   }
 
+  /* Transparent range that drives the before/after reveal */
+  .ba-range {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+  }
+  .ba-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 44px;
+    height: 160px;
+    cursor: ew-resize;
+  }
+  .ba-range::-moz-range-thumb {
+    width: 44px;
+    height: 160px;
+    border: 0;
+    background: transparent;
+    cursor: ew-resize;
+  }
+  /* The input is invisible, so focus has to be shown on the frame it covers */
+  .ba-range:focus-visible {
+    outline: 3px solid var(--champagne);
+    outline-offset: -3px;
+  }
+
   .skip-link {
     @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-champagne focus:text-ink focus:rounded-md focus:font-600;
   }

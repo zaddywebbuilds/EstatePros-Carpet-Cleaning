@@ -5,35 +5,42 @@ import { ArrowRight } from 'lucide-react'
 
 const BASE = '/EstatePros-Carpet-Cleaning'
 
+// Each entry appears once; no image is repeated within the page.
 const galleryImages = [
   {
     src: `${BASE}/images/estatepros-hero-living-room.webp`,
-    alt: 'Bright, airy Calgary living room with large windows, neutral carpet, and modern furnishings',
+    alt: 'Bright Calgary living room with large windows, neutral carpet and modern furnishings',
     caption: 'Premium residential interior',
     cols: 'sm:col-span-2',
   },
   {
-    src: `${BASE}/images/estatepros-technician-extraction.webp`,
-    alt: 'Professional carpet cleaning technician using extraction equipment on light carpet',
+    src: `${BASE}/images/carpet-extraction.webp`,
+    alt: 'Extraction wand drawing a clean path across light wall-to-wall carpet',
     caption: 'Hot water extraction in progress',
     cols: '',
   },
   {
     src: `${BASE}/images/estatepros-upholstery-detail.webp`,
-    alt: 'Close-up of upholstery cleaning attachment working on cream fabric',
+    alt: 'Close-up of an upholstery cleaning attachment working on cream fabric',
     caption: 'Upholstery care, up close',
     cols: '',
   },
   {
-    src: `${BASE}/images/estatepros-carpet-wand-detail.webp`,
-    alt: 'Carpet cleaning wand making contact with light textured carpet fibers',
-    caption: 'Detail work on carpet fibers',
+    src: `${BASE}/images/area-rug-care.webp`,
+    alt: 'Patterned area rug on hardwood being cleaned with an extraction wand',
+    caption: 'Area rugs, cleaned in place',
     cols: '',
   },
   {
-    src: `${BASE}/images/estatepros-hero-living-room.webp`,
-    alt: 'Living room with pristine light carpet and natural light from large windows',
-    caption: 'A space ready for its day',
+    src: `${BASE}/images/commercial-carpet-cleaning.webp`,
+    alt: 'Open-plan office with desks and glass partitions, carpet being cleaned along a walkway',
+    caption: 'Commercial floors after hours',
+    cols: '',
+  },
+  {
+    src: `${BASE}/images/estatepros-carpet-wand-detail.webp`,
+    alt: 'Cleaning wand making contact with light textured carpet fibres',
+    caption: 'Detail work on carpet fibres',
     cols: 'sm:col-span-2',
   },
 ]

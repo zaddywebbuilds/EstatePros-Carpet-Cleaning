@@ -78,8 +78,8 @@ export default function Hero() {
         transition={{ duration: 0.85, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
       >
         <img
-          src={`${BASE}/images/estatepros-hero-living-room.webp`}
-          alt="Bright Calgary living room with light neutral carpet and tall windows"
+          src={`${BASE}/images/luxury-living-room.webp`}
+          alt="Open Calgary living room with a sectional sofa, stone fireplace and pale wall-to-wall carpet"
           className="aspect-[16/8] w-full object-cover object-center"
           fetchPriority="high"
           decoding="async"

@@ -83,8 +83,8 @@ export default function AboutPage() {
           >
             <div className="rounded-3xl overflow-hidden shadow-float" style={{ aspectRatio: '4/3' }}>
               <img
-                src={`${BASE}/images/estatepros-technician-extraction.webp`}
-                alt="Carpet cleaning professional at work in modern interior"
+                src={`${BASE}/images/estatepros-hero-living-room.webp`}
+                alt="Calgary living room with pale carpet and daylight through tall windows"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -147,8 +147,8 @@ export default function AboutPage() {
           >
             <div className="rounded-3xl overflow-hidden" style={{ aspectRatio: '4/3' }}>
               <img
-                src={`${BASE}/images/estatepros-carpet-wand-detail.webp`}
-                alt="Close-up of carpet cleaning extraction wand on textured carpet"
+                src={`${BASE}/images/carpet-spot-treatment.webp`}
+                alt="Gloved hand spraying a pre-treatment onto a marked patch of carpet"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />

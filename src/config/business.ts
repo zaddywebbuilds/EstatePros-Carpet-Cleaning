@@ -41,8 +41,8 @@ export const business = {
       shortDesc: 'Deep extraction cleaning for wall-to-wall carpets and open-plan spaces.',
       confirmed: true,
       featured: true,
-      image: '/EstatePros-Carpet-Cleaning/images/estatepros-technician-extraction.webp',
-      imageAlt: 'Professional holding carpet extraction wand over light carpet in modern Calgary living room',
+      image: '/EstatePros-Carpet-Cleaning/images/carpet-extraction.webp',
+      imageAlt: 'Extraction wand drawing a clean path across light wall-to-wall carpet beside a sofa',
     },
     {
       id: 'upholstery-cleaning',
@@ -50,8 +50,8 @@ export const business = {
       shortDesc: 'Careful fabric care for sofas, chairs, and upholstered pieces.',
       confirmed: false,
       featured: false,
-      image: '/EstatePros-Carpet-Cleaning/images/estatepros-upholstery-detail.webp',
-      imageAlt: 'Close-up of upholstery cleaning tool working on cream sofa cushion',
+      image: '/EstatePros-Carpet-Cleaning/images/upholstery-extraction.webp',
+      imageAlt: 'Hand guiding an upholstery extraction tool across a woven sofa cushion',
     },
     {
       id: 'area-rug-cleaning',
@@ -59,8 +59,8 @@ export const business = {
       shortDesc: 'Specialist handling for area rugs of various fibers and constructions.',
       confirmed: false,
       featured: false,
-      image: '/EstatePros-Carpet-Cleaning/images/estatepros-carpet-wand-detail.webp',
-      imageAlt: 'Carpet wand detail on light fiber area rug',
+      image: '/EstatePros-Carpet-Cleaning/images/area-rug-care.webp',
+      imageAlt: 'Patterned area rug on hardwood being cleaned with an extraction wand',
     },
     {
       id: 'stain-odour-treatment',
@@ -68,8 +68,8 @@ export const business = {
       shortDesc: 'Targeted treatment for isolated stains and persistent odours.',
       confirmed: false,
       featured: false,
-      image: '/EstatePros-Carpet-Cleaning/images/estatepros-technician-extraction.webp',
-      imageAlt: 'Technician applying spot treatment to carpet',
+      image: '/EstatePros-Carpet-Cleaning/images/carpet-spot-treatment.webp',
+      imageAlt: 'Gloved hand spraying a pre-treatment onto a marked patch of carpet',
     },
     {
       id: 'commercial-carpet-cleaning',
@@ -77,8 +77,34 @@ export const business = {
       shortDesc: 'Scheduled maintenance and deep cleans for commercial spaces.',
       confirmed: false,
       featured: false,
-      image: '/EstatePros-Carpet-Cleaning/images/estatepros-hero-living-room.webp',
-      imageAlt: 'Wide angle view of open plan commercial space with carpeted floor',
+      image: '/EstatePros-Carpet-Cleaning/images/commercial-carpet-cleaning.webp',
+      imageAlt: 'Open-plan office with desks and glass partitions, carpet being cleaned along a walkway',
+    },
+  ],
+
+  // Illustrative before/after pairs for the comparison sliders.
+  // These are concept visualizations, NOT photographs of completed jobs.
+  // Swap in matched real client pairs once the owner supplies them.
+  // Two pairs shipped from the asset pack showed a bathroom and a kitchen
+  // counter, which is not work this business does, so they are not used here.
+  comparisons: [
+    {
+      id: 'residential-carpet',
+      title: 'Residential carpet',
+      caption: 'Settled soil through the main walkway of a living room, lifted by hot water extraction.',
+      before: '/EstatePros-Carpet-Cleaning/images/before-after/carpet-comparison-before.webp',
+      after: '/EstatePros-Carpet-Cleaning/images/before-after/carpet-comparison-after.webp',
+      beforeAlt: 'Living room carpet beside a stone fireplace showing dulled traffic lanes and scattered marks',
+      afterAlt: 'The same living room carpet cleaned, with an even tone and the pile lifted',
+    },
+    {
+      id: 'commercial-carpet',
+      title: 'Commercial floor',
+      caption: 'Heavy traffic lanes across an open-plan office, cleaned back to an even tone.',
+      before: '/EstatePros-Carpet-Cleaning/images/before-after/upholstery-comparison-before.webp',
+      after: '/EstatePros-Carpet-Cleaning/images/before-after/upholstery-comparison-after.webp',
+      beforeAlt: 'Open-plan office carpet with dark soiling worn along the walkway between desks',
+      afterAlt: 'The same office carpet cleaned, with the loop texture reading evenly across the floor',
     },
   ],
 
