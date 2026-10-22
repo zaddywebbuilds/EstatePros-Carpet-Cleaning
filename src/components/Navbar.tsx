@@ -49,55 +49,45 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Microbar */}
-      <div className="bg-teal text-ivory/80 text-xs font-ui font-500 tracking-wide py-2 px-4 flex items-center justify-between">
-        <span>Serving Calgary, Alberta</span>
-        <Link
-          to="/contact"
-          className="text-champagne hover:text-champagne-dark transition-colors duration-200"
-          style={{ letterSpacing: '0.06em' }}
-        >
-          {business.ctaQuoteLabel} &rarr;
-        </Link>
-      </div>
-
-      {/* Main nav */}
+      {/* Floating nav - a surface, never a full-bleed band */}
       <nav
-        className={`sticky top-0 z-40 transition-all duration-500 ${
-          scrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-[0_1px_20px_rgba(16,44,51,0.08)]'
-            : 'bg-white/90 backdrop-blur-sm'
-        }`}
+        className="sticky top-0 z-40 px-4 sm:px-6 lg:px-8 pt-4 pb-2"
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+        <div
+          className={`mx-auto max-w-7xl flex items-center justify-between gap-4 rounded-full px-4 sm:px-5 py-2.5 transition-all duration-500 ${
+            scrolled
+              ? 'bg-white/80 backdrop-blur-xl shadow-surface border border-white/70'
+              : 'bg-white/55 backdrop-blur-lg shadow-surface border border-white/60'
+          }`}
+        >
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center gap-2 group"
+            className="flex items-center gap-2.5 shrink-0"
             aria-label="EstatePros Carpet Cleaning - Home"
           >
-            <div className="w-8 h-8 bg-teal rounded-lg flex items-center justify-center shrink-0">
-              <span className="text-ivory font-heading font-800 text-sm">E</span>
+            <div className="w-9 h-9 bg-teal rounded-full flex items-center justify-center shrink-0">
+              <span className="text-ivory font-heading text-base" style={{ fontWeight: 600 }}>E</span>
             </div>
-            <span className="font-heading font-700 text-teal text-lg leading-none">
-              Estate<span className="text-champagne">Pros</span>
+            <span className="font-heading text-teal text-xl leading-none" style={{ fontWeight: 600 }}>
+              Estate<span className="text-champagne-dark">Pros</span>
             </span>
           </Link>
 
           {/* Desktop links */}
-          <ul className="hidden lg:flex items-center gap-1" role="list">
+          <ul className="hidden lg:flex items-center gap-0.5" role="list">
             {navLinks.map(({ label, to }) => (
               <li key={to}>
                 <NavLink
                   to={to}
                   end={to === '/'}
                   className={({ isActive }) =>
-                    `px-3.5 py-2 text-sm font-ui font-500 rounded-lg transition-colors duration-200 ${
+                    `px-4 py-2 text-sm font-ui font-500 rounded-full transition-all duration-200 ${
                       isActive
-                        ? 'text-teal bg-mist/60'
-                        : 'text-ink/70 hover:text-teal hover:bg-mist/40'
+                        ? 'text-teal bg-white/90 shadow-sm'
+                        : 'text-stone hover:text-teal hover:bg-white/60'
                     }`
                   }
                 >
@@ -108,19 +98,19 @@ export default function Navbar() {
           </ul>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3 shrink-0">
             {business.phone && (
               <a
                 href={`tel:${business.phone}`}
-                className="text-sm font-ui font-500 text-teal/80 hover:text-teal transition-colors"
+                className="text-sm font-ui font-500 text-stone hover:text-teal transition-colors"
               >
                 {business.phoneDisplay}
               </a>
             )}
             <Link
               to="/contact"
-              className="btn-primary text-white bg-teal hover:bg-teal-light"
-              style={{ fontSize: '0.875rem' }}
+              className="inline-flex items-center justify-center rounded-full bg-teal px-6 py-2.5 font-sans text-sm text-ivory transition-all duration-300 hover:shadow-surface"
+              style={{ fontWeight: 600, letterSpacing: '0.02em' }}
             >
               {business.ctaQuoteLabel}
             </Link>
@@ -128,7 +118,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="lg:hidden p-2 rounded-lg text-teal hover:bg-mist/60 transition-colors"
+            className="lg:hidden p-2 rounded-full text-teal hover:bg-white/70 transition-colors"
             onClick={() => setOpen(!open)}
             aria-expanded={open}
             aria-controls="mobile-nav"
@@ -158,19 +148,19 @@ export default function Navbar() {
               role="dialog"
               aria-label="Mobile navigation menu"
               tabIndex={-1}
-              className="fixed top-0 right-0 bottom-0 z-50 w-80 max-w-[90vw] bg-ivory shadow-2xl flex flex-col lg:hidden"
+              className="fixed top-3 right-3 bottom-3 z-50 w-80 max-w-[90vw] bg-sand-warm rounded-4xl shadow-surface-lg border border-white/80 flex flex-col overflow-hidden lg:hidden"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
             >
-              <div className="flex items-center justify-between px-6 py-5 border-b border-mist">
-                <span className="font-heading font-700 text-teal text-lg">
-                  Estate<span className="text-champagne">Pros</span>
+              <div className="flex items-center justify-between px-6 py-5 border-b border-sand-deep">
+                <span className="font-heading text-teal text-xl" style={{ fontWeight: 600 }}>
+                  Estate<span className="text-champagne-dark">Pros</span>
                 </span>
                 <button
                   onClick={() => setOpen(false)}
-                  className="p-2 rounded-lg text-teal hover:bg-mist/60 transition-colors"
+                  className="p-2 rounded-full text-teal hover:bg-white/70 transition-colors"
                   aria-label="Close menu"
                 >
                   <X size={20} />
@@ -189,10 +179,10 @@ export default function Navbar() {
                       to={to}
                       end={to === '/'}
                       className={({ isActive }) =>
-                        `block px-4 py-3 text-base font-heading font-600 rounded-xl transition-colors duration-200 ${
+                        `block px-4 py-3 text-lg font-heading rounded-2xl transition-colors duration-200 ${
                           isActive
-                            ? 'text-teal bg-mist'
-                            : 'text-ink hover:text-teal hover:bg-mist/60'
+                            ? 'text-teal bg-white shadow-sm'
+                            : 'text-ink hover:text-teal hover:bg-white/70'
                         }`
                       }
                     >
@@ -202,10 +192,10 @@ export default function Navbar() {
                 ))}
               </ul>
 
-              <div className="px-6 py-6 border-t border-mist">
+              <div className="px-6 py-6 border-t border-sand-deep">
                 <Link
                   to="/contact"
-                  className="btn-primary w-full text-white bg-teal justify-center"
+                  className="btn-primary w-full justify-center"
                 >
                   {business.ctaQuoteLabel}
                 </Link>

@@ -30,19 +30,19 @@ export default function BookingJourney() {
   const shouldReduce = useReducedMotion()
 
   return (
-    <section className="bg-teal py-24 px-4 sm:px-6 overflow-hidden" aria-labelledby="journey-heading">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+    <section className="py-10 px-4 sm:px-6 lg:px-8" aria-labelledby="journey-heading">
+      <div className="panel-deep max-w-7xl mx-auto px-6 sm:px-12 py-20 overflow-hidden">
+        <div className="text-center mb-10">
           <p className="font-ui text-xs font-600 tracking-[0.18em] uppercase text-ivory/50 mb-4">
             How It Works
           </p>
           <h2
             id="journey-heading"
-            className="font-heading font-800 text-ivory leading-tight"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.02em' }}
+            className="font-heading font-600 text-ivory leading-tight"
+            style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.01em' }}
           >
             From enquiry to<br />
-            <em className="font-serif" style={{ fontStyle: 'italic', fontWeight: 300, color: '#DCECE9' }}>
+            <em className="font-serif" style={{ fontStyle: 'italic', fontWeight: 400, color: '#DCECE9' }}>
               exceptional clean
             </em>
           </h2>
@@ -71,14 +71,14 @@ export default function BookingJourney() {
                     <Icon size={20} className="text-ivory/80" strokeWidth={1.75} />
                   </div>
                   <span
-                    className="font-heading font-800 text-ivory/20"
-                    style={{ fontSize: '2.5rem', lineHeight: 1, letterSpacing: '-0.04em' }}
+                    className="font-heading font-600 text-ivory/20"
+                    style={{ fontSize: '2.5rem', lineHeight: 1, letterSpacing: '-0.01em' }}
                     aria-hidden="true"
                   >
                     {num}
                   </span>
                 </div>
-                <h3 className="font-heading font-700 text-ivory text-lg mb-3 leading-snug">{title}</h3>
+                <h3 className="font-heading font-600 text-ivory text-lg mb-3 leading-snug">{title}</h3>
                 <p className="font-ui text-ivory/65 text-sm leading-relaxed">{desc}</p>
                 {note && (
                   <p className="mt-4 text-xs font-ui text-ivory/40 italic">&mdash; {note}</p>
@@ -97,7 +97,7 @@ export default function BookingJourney() {
         >
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2.5 px-8 py-4 bg-champagne text-ink font-heading font-700 text-sm rounded-full hover:bg-champagne-dark transition-colors"
+            className="inline-flex items-center gap-2.5 px-8 py-4 bg-champagne text-ink font-heading font-600 text-sm rounded-full hover:bg-champagne-dark transition-colors"
             style={{ letterSpacing: '0.03em' }}
           >
             Start your enquiry

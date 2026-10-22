@@ -40,7 +40,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Page hero */}
-      <section className="bg-teal py-24 px-4 sm:px-6 overflow-hidden">
+      <section className="panel-deep relative overflow-hidden mx-4 sm:mx-6 lg:mx-8 mt-4 mb-8 py-16 px-6 sm:px-12">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <motion.p
@@ -52,15 +52,15 @@ export default function AboutPage() {
               About EstatePros
             </motion.p>
             <motion.h1
-              className="font-heading font-800 text-ivory leading-tight"
-              style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '-0.03em' }}
+              className="font-heading font-600 text-ivory leading-tight"
+              style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '-0.01em' }}
               initial={shouldReduce ? {} : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.08 }}
             >
               Our approach
               <br />
-              <em className="font-serif" style={{ fontStyle: 'italic', fontWeight: 300, color: '#DCECE9' }}>
+              <em className="font-serif" style={{ fontStyle: 'italic', fontWeight: 400, color: '#DCECE9' }}>
                 starts with listening
               </em>
             </motion.h1>
@@ -94,9 +94,9 @@ export default function AboutPage() {
       </section>
 
       {/* Philosophy */}
-      <section className="bg-ivory py-24 px-4 sm:px-6">
+      <section className="py-8 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="max-w-2xl mx-auto text-center mb-16">
+          <div className="max-w-2xl mx-auto text-center mb-10">
             <motion.p className="section-eyebrow mb-5" {...reveal()}>
               What We Believe
             </motion.p>
@@ -105,7 +105,7 @@ export default function AboutPage() {
               {...reveal(0.08)}
             >
               Good care changes{' '}
-              <em className="font-serif" style={{ fontStyle: 'italic', fontWeight: 300, color: '#B5A185' }}>
+              <em className="font-serif" style={{ fontStyle: 'italic', fontWeight: 400, color: '#B5A185' }}>
                 the way a room feels
               </em>
             </motion.h2>
@@ -127,7 +127,7 @@ export default function AboutPage() {
                 <div className="w-12 h-12 bg-mist rounded-2xl flex items-center justify-center mb-5">
                   <Icon size={20} className="text-teal" strokeWidth={1.75} />
                 </div>
-                <h3 className="font-heading font-700 text-teal text-base mb-3 leading-snug">{title}</h3>
+                <h3 className="font-heading font-600 text-teal text-base mb-3 leading-snug">{title}</h3>
                 <p className="font-ui text-stone text-sm leading-relaxed">{desc}</p>
               </motion.div>
             ))}
@@ -136,8 +136,8 @@ export default function AboutPage() {
       </section>
 
       {/* Process section */}
-      <section className="bg-white py-24 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+      <section className="py-8 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
           <motion.div
             className="relative"
             initial={shouldReduce ? {} : { opacity: 0, x: -24 }}
@@ -183,7 +183,7 @@ export default function AboutPage() {
               </p>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 font-heading font-700 text-champagne hover:text-champagne-dark transition-colors text-sm"
+                className="inline-flex items-center gap-2 font-heading font-600 text-champagne hover:text-champagne-dark transition-colors text-sm"
               >
                 Get in touch <ArrowRight size={14} strokeWidth={2.5} />
               </Link>

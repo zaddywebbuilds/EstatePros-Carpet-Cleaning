@@ -15,9 +15,9 @@ export default function EditorialAbout() {
   })
 
   return (
-    <section className="bg-ivory py-24 px-4 sm:px-6 overflow-hidden" aria-labelledby="about-heading">
+    <section className="py-8 px-4 sm:px-6 overflow-hidden" aria-labelledby="about-heading">
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
 
           {/* Left: editorial text */}
           <div>
@@ -27,15 +27,15 @@ export default function EditorialAbout() {
 
             <motion.h2
               id="about-heading"
-              className="font-heading font-800 text-teal leading-none mb-8"
-              style={{ fontSize: 'clamp(2.4rem, 5vw, 4.2rem)', letterSpacing: '-0.03em' }}
+              className="font-heading font-600 text-teal leading-[1.08] mb-8"
+              style={{ fontSize: 'clamp(2.4rem, 5vw, 4.2rem)', letterSpacing: '-0.01em' }}
               {...reveal(0.08)}
             >
               Good care changes
               <br />
               <em
                 className="font-serif"
-                style={{ fontStyle: 'italic', fontWeight: 300, color: '#B5A185' }}
+                style={{ fontStyle: 'italic', fontWeight: 400, color: '#B5A185' }}
               >
                 the way a room
               </em>
@@ -55,7 +55,7 @@ export default function EditorialAbout() {
             </motion.p>
 
             <motion.div {...reveal(0.28)}>
-              <Link to="/about" className="inline-flex items-center gap-2 font-heading font-700 text-teal text-sm hover:gap-3 transition-all duration-300">
+              <Link to="/about" className="inline-flex items-center gap-2 font-heading font-600 text-teal text-sm hover:gap-3 transition-all duration-300">
                 Learn about our approach
                 <ArrowRight size={15} strokeWidth={2.5} />
               </Link>
@@ -102,14 +102,14 @@ export default function EditorialAbout() {
                 <div className="w-8 h-8 bg-teal/10 rounded-lg flex items-center justify-center">
                   <Calendar size={14} className="text-teal" />
                 </div>
-                <p className="font-heading font-700 text-teal text-sm">Book a chat</p>
+                <p className="font-heading font-600 text-teal text-sm">Book a chat</p>
               </div>
               <p className="font-ui text-stone text-xs leading-snug">
                 Tell us about your space and we&rsquo;ll plan together.
               </p>
               <Link
                 to="/contact"
-                className="mt-3 inline-flex items-center gap-1 text-xs font-heading font-700 text-champagne hover:text-champagne-dark transition-colors"
+                className="mt-3 inline-flex items-center gap-1 text-xs font-heading font-600 text-champagne hover:text-champagne-dark transition-colors"
               >
                 Get started <ArrowRight size={11} strokeWidth={2.5} />
               </Link>

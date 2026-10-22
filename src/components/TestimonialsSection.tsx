@@ -6,7 +6,7 @@ export default function TestimonialsSection() {
   const shouldReduce = useReducedMotion()
 
   return (
-    <section className="bg-mist py-24 px-4 sm:px-6" aria-labelledby="reviews-heading">
+    <section className="py-8 px-4 sm:px-6" aria-labelledby="reviews-heading">
       <div className="max-w-4xl mx-auto text-center">
         <motion.div
           initial={shouldReduce ? {} : { opacity: 0, y: 24 }}
@@ -17,8 +17,8 @@ export default function TestimonialsSection() {
           <p className="section-eyebrow mb-5">Customer Feedback</p>
           <h2
             id="reviews-heading"
-            className="font-heading font-800 text-teal leading-tight mb-6"
-            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '-0.025em' }}
+            className="font-heading font-600 text-teal leading-tight mb-6"
+            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', letterSpacing: '-0.01em' }}
           >
             What our customers are saying
           </h2>
@@ -47,7 +47,7 @@ export default function TestimonialsSection() {
             href={business.googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 px-8 py-4 bg-teal text-ivory font-heading font-700 text-sm rounded-full hover:bg-teal-light transition-colors"
+            className="inline-flex items-center gap-2.5 px-8 py-4 bg-teal text-ivory font-heading font-600 text-sm rounded-full hover:bg-teal-light transition-colors"
             style={{ letterSpacing: '0.03em' }}
           >
             Read customer reviews on Google

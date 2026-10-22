@@ -3,33 +3,27 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { business } from '../config/business'
 
-const BASE = '/EstatePros-Carpet-Cleaning'
-
 export default function ClosingCTA() {
   const shouldReduce = useReducedMotion()
 
   return (
     <section
-      className="relative py-32 px-4 sm:px-6 overflow-hidden"
+      className="py-10 px-4 sm:px-6 lg:px-8"
       aria-labelledby="closing-cta-heading"
     >
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <img
-          src={`${BASE}/images/estatepros-carpet-wand-detail.webp`}
-          alt=""
-          aria-hidden="true"
-          className="w-full h-full object-cover object-center"
-          loading="lazy"
-        />
-        <div
-          className="absolute inset-0"
-          style={{ background: 'linear-gradient(to right, rgba(16,44,51,0.92) 0%, rgba(16,44,51,0.75) 50%, rgba(16,44,51,0.50) 100%)' }}
-        />
-      </div>
+      <div className="panel-deep relative max-w-7xl mx-auto overflow-hidden px-6 sm:px-12 py-20">
+      {/* Soft champagne bloom, no photograph */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(ellipse 50% 80% at 85% 50%, rgba(181,161,133,0.22) 0%, rgba(16,44,51,0) 70%)',
+        }}
+      />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10">
         <div className="max-w-2xl">
           <motion.p
             className="font-ui text-xs font-600 tracking-[0.2em] uppercase text-ivory/50 mb-5"
@@ -43,8 +37,8 @@ export default function ClosingCTA() {
 
           <motion.h2
             id="closing-cta-heading"
-            className="font-heading font-800 text-ivory leading-tight mb-6"
-            style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', letterSpacing: '-0.025em' }}
+            className="font-heading font-600 text-ivory leading-tight mb-6"
+            style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', letterSpacing: '-0.01em' }}
             initial={shouldReduce ? {} : { opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
@@ -53,7 +47,7 @@ export default function ClosingCTA() {
             Ready to feel the<br />
             <em
               className="font-serif"
-              style={{ fontStyle: 'italic', fontWeight: 300, color: '#DCECE9' }}
+              style={{ fontStyle: 'italic', fontWeight: 400, color: '#DCECE9' }}
             >
               difference
             </em>{' '}
@@ -81,7 +75,7 @@ export default function ClosingCTA() {
           >
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2.5 px-8 py-4 bg-champagne text-ink font-heading font-700 text-sm rounded-full hover:bg-champagne-dark transition-colors shadow-lg"
+              className="inline-flex items-center gap-2.5 px-8 py-4 bg-champagne text-ink font-heading font-600 text-sm rounded-full hover:bg-champagne-dark transition-colors shadow-lg"
               style={{ letterSpacing: '0.03em' }}
             >
               {business.ctaQuoteLabel}
@@ -89,6 +83,7 @@ export default function ClosingCTA() {
             </Link>
           </motion.div>
         </div>
+      </div>
       </div>
     </section>
   )

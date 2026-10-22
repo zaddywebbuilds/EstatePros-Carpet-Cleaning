@@ -61,7 +61,7 @@ export default function ServiceDetail() {
       )}
 
       {/* Hero */}
-      <section className="relative bg-teal py-20 px-4 sm:px-6 overflow-hidden">
+      <section className="panel-deep relative overflow-hidden mx-4 sm:mx-6 lg:mx-8 mt-4 mb-8 py-16 px-6 sm:px-12">
         <div className="absolute inset-0 opacity-20">
           <img
             src={service.image}
@@ -79,8 +79,8 @@ export default function ServiceDetail() {
             <ArrowLeft size={13} /> All services
           </Link>
           <motion.h1
-            className="font-heading font-800 text-ivory leading-tight"
-            style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', letterSpacing: '-0.025em' }}
+            className="font-heading font-600 text-ivory leading-tight"
+            style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', letterSpacing: '-0.01em' }}
             initial={shouldReduce ? {} : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -100,12 +100,12 @@ export default function ServiceDetail() {
       </section>
 
       {/* Content + Form */}
-      <section className="bg-ivory py-20 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
+      <section className="py-8 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10">
 
           {/* Left: content */}
           <div>
-            <h2 className="font-heading font-700 text-teal text-xl mb-6 leading-snug">{content.headline}</h2>
+            <h2 className="font-heading font-600 text-teal text-xl mb-6 leading-snug">{content.headline}</h2>
             {content.body.map((para, i) => (
               <p key={i} className="body-copy mb-4">{para}</p>
             ))}
@@ -134,7 +134,7 @@ export default function ServiceDetail() {
             <div className="mt-8">
               <Link
                 to="/services"
-                className="inline-flex items-center gap-1.5 text-sm font-heading font-700 text-teal hover:text-teal-light transition-colors"
+                className="inline-flex items-center gap-1.5 text-sm font-heading font-600 text-teal hover:text-teal-light transition-colors"
               >
                 <ArrowLeft size={14} strokeWidth={2.5} /> View all services
               </Link>
@@ -144,7 +144,7 @@ export default function ServiceDetail() {
           {/* Right: quote form */}
           <div>
             <div className="bg-white rounded-3xl shadow-card p-8">
-              <h3 className="font-heading font-700 text-teal text-xl mb-2">Request a quote</h3>
+              <h3 className="font-heading font-600 text-teal text-xl mb-2">Request a quote</h3>
               <p className="font-ui text-stone text-sm mb-8 leading-relaxed">
                 Tell us about your space and we&rsquo;ll be in touch to discuss the details.
               </p>
@@ -156,14 +156,14 @@ export default function ServiceDetail() {
       </section>
 
       {/* Cross-link */}
-      <section className="bg-white py-14 px-4 sm:px-6 border-t border-mist">
+      <section className="py-8 px-4 sm:px-6 border-t border-mist">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-          <p className="font-heading font-700 text-teal text-lg">
+          <p className="font-heading font-600 text-teal text-lg">
             Ready to take the next step?
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-7 py-3.5 bg-champagne text-ink font-heading font-700 text-sm rounded-full hover:bg-champagne-dark transition-colors"
+            className="inline-flex items-center gap-2 px-7 py-3.5 bg-champagne text-ink font-heading font-600 text-sm rounded-full hover:bg-champagne-dark transition-colors"
             style={{ letterSpacing: '0.03em' }}
           >
             {business.ctaQuoteLabel} <ArrowRight size={14} strokeWidth={2.5} />

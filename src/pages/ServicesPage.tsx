@@ -4,7 +4,6 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Lock } from 'lucide-react'
 import { business } from '../config/business'
 
-const BASE = '/EstatePros-Carpet-Cleaning'
 
 export default function ServicesPage() {
   const shouldReduce = useReducedMotion()
@@ -16,7 +15,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Page header */}
-      <section className="bg-teal py-24 px-4 sm:px-6">
+      <section className="panel-deep relative overflow-hidden mx-4 sm:mx-6 lg:mx-8 mt-4 mb-8 py-16 px-6 sm:px-12">
         <div className="max-w-7xl mx-auto">
           <motion.p
             className="font-ui text-xs font-600 tracking-[0.2em] uppercase text-ivory/50 mb-4"
@@ -27,15 +26,15 @@ export default function ServicesPage() {
             EstatePros &middot; Calgary
           </motion.p>
           <motion.h1
-            className="font-heading font-800 text-ivory leading-tight"
-            style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '-0.03em' }}
+            className="font-heading font-600 text-ivory leading-tight"
+            style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '-0.01em' }}
             initial={shouldReduce ? {} : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.08 }}
           >
             Services built around
             <br />
-            <em className="font-serif" style={{ fontStyle: 'italic', fontWeight: 300, color: '#DCECE9' }}>
+            <em className="font-serif" style={{ fontStyle: 'italic', fontWeight: 400, color: '#DCECE9' }}>
               your space
             </em>
           </motion.h1>
@@ -53,7 +52,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services grid */}
-      <section className="bg-ivory py-20 px-4 sm:px-6">
+      <section className="py-8 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
             {business.services.map((service, i) => (
@@ -82,14 +81,14 @@ export default function ServicesPage() {
                   )}
                 </div>
                 <div className="p-6">
-                  <h2 className="font-heading font-700 text-teal text-lg mb-2">{service.name}</h2>
+                  <h2 className="font-heading font-600 text-teal text-lg mb-2">{service.name}</h2>
                   <p className="font-ui text-stone text-sm leading-relaxed mb-5">{service.shortDesc}</p>
                   <div className="flex items-center gap-4">
                     {service.confirmed ? (
                       <>
                         <Link
                           to={`/services/${service.id}`}
-                          className="text-sm font-heading font-700 text-teal hover:text-teal-light transition-colors flex items-center gap-1"
+                          className="text-sm font-heading font-600 text-teal hover:text-teal-light transition-colors flex items-center gap-1"
                         >
                           Learn more <ArrowRight size={13} strokeWidth={2.5} />
                         </Link>
@@ -103,7 +102,7 @@ export default function ServicesPage() {
                     ) : (
                       <Link
                         to="/contact"
-                        className="text-sm font-heading font-700 text-champagne hover:text-champagne-dark transition-colors flex items-center gap-1"
+                        className="text-sm font-heading font-600 text-champagne hover:text-champagne-dark transition-colors flex items-center gap-1"
                       >
                         Ask about this service <ArrowRight size={13} strokeWidth={2.5} />
                       </Link>
@@ -120,7 +119,7 @@ export default function ServicesPage() {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-teal text-ivory font-heading font-700 text-sm rounded-full hover:bg-teal-light transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-teal text-ivory font-heading font-600 text-sm rounded-full hover:bg-teal-light transition-colors"
               style={{ letterSpacing: '0.03em' }}
             >
               Send an enquiry <ArrowRight size={14} strokeWidth={2.5} />

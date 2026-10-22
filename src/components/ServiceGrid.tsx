@@ -8,7 +8,7 @@ export default function ServiceGrid() {
   const confirmedServices = business.services.filter(s => s.confirmed)
 
   return (
-    <section className="bg-white py-24 px-4 sm:px-6" aria-labelledby="services-heading">
+    <section className="py-8 px-4 sm:px-6" aria-labelledby="services-heading">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
@@ -19,7 +19,7 @@ export default function ServiceGrid() {
           </div>
           <Link
             to="/services"
-            className="inline-flex items-center gap-2 text-sm font-heading font-700 text-champagne hover:text-champagne-dark transition-colors shrink-0"
+            className="inline-flex items-center gap-2 text-sm font-heading font-600 text-champagne hover:text-champagne-dark transition-colors shrink-0"
           >
             View all services <ArrowRight size={14} strokeWidth={2.5} />
           </Link>
@@ -50,12 +50,12 @@ export default function ServiceGrid() {
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="font-heading font-700 text-teal text-lg mb-2">{service.name}</h3>
+                <h3 className="font-heading font-600 text-teal text-lg mb-2">{service.name}</h3>
                 <p className="body-copy text-stone mb-5 text-sm">{service.shortDesc}</p>
                 <div className="flex items-center gap-4">
                   <Link
                     to={`/services/${service.id}`}
-                    className="text-sm font-heading font-700 text-teal hover:text-teal-light transition-colors flex items-center gap-1"
+                    className="text-sm font-heading font-600 text-teal hover:text-teal-light transition-colors flex items-center gap-1"
                   >
                     Learn more <ArrowRight size={13} strokeWidth={2.5} />
                   </Link>
@@ -81,14 +81,14 @@ export default function ServiceGrid() {
             <div className="w-12 h-12 bg-teal/10 rounded-2xl flex items-center justify-center mb-5">
               <MessageCircle size={22} className="text-teal" strokeWidth={1.5} />
             </div>
-            <h3 className="font-heading font-700 text-teal text-lg mb-3">Ask about your space</h3>
+            <h3 className="font-heading font-600 text-teal text-lg mb-3">Ask about your space</h3>
             <p className="font-ui text-stone text-sm leading-relaxed mb-6">
               Upholstery, area rugs, commercial spaces, and more. Tell us what you&rsquo;re working with
               and we&rsquo;ll let you know how we can help.
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-teal text-ivory font-heading font-700 text-sm rounded-full hover:bg-teal-light transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-teal text-ivory font-heading font-600 text-sm rounded-full hover:bg-teal-light transition-colors"
             >
               Send an enquiry <ArrowRight size={14} strokeWidth={2.5} />
             </Link>

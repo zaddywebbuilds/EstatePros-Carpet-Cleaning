@@ -19,17 +19,17 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-ink text-ivory/80" role="contentinfo">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
-        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-12 mb-12">
+    <footer className="px-4 sm:px-6 lg:px-8 pb-6 text-ivory/80" role="contentinfo">
+      <div className="panel-deep max-w-7xl mx-auto px-6 sm:px-12 py-14">
+        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-10 mb-10">
 
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
               <div className="w-9 h-9 bg-teal rounded-xl flex items-center justify-center">
-                <span className="text-ivory font-heading font-800 text-sm">E</span>
+                <span className="text-ivory font-heading font-600 text-sm">E</span>
               </div>
-              <span className="font-heading font-700 text-ivory text-xl leading-none">
+              <span className="font-heading font-600 text-ivory text-xl leading-none">
                 Estate<span className="text-champagne">Pros</span>
               </span>
             </div>
@@ -74,7 +74,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h3 className="font-heading font-700 text-ivory text-sm mb-5 tracking-wide uppercase" style={{ letterSpacing: '0.08em' }}>
+            <h3 className="font-heading font-600 text-ivory text-sm mb-5 tracking-wide uppercase" style={{ letterSpacing: '0.08em' }}>
               Navigation
             </h3>
             <ul className="space-y-2.5" role="list">
@@ -93,7 +93,7 @@ export default function Footer() {
 
           {/* CTA column */}
           <div>
-            <h3 className="font-heading font-700 text-ivory text-sm mb-5 tracking-wide uppercase" style={{ letterSpacing: '0.08em' }}>
+            <h3 className="font-heading font-600 text-ivory text-sm mb-5 tracking-wide uppercase" style={{ letterSpacing: '0.08em' }}>
               Get in touch
             </h3>
             <p className="font-ui text-sm text-ivory/55 leading-relaxed mb-5">
@@ -101,7 +101,7 @@ export default function Footer() {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-champagne text-ink font-heading font-700 text-sm rounded-full hover:bg-champagne-dark transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-champagne text-ink font-heading font-600 text-sm rounded-full hover:bg-champagne-dark transition-colors"
               style={{ letterSpacing: '0.03em' }}
             >
               {business.ctaQuoteLabel}

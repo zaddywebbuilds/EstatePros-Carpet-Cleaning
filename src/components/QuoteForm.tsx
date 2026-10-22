@@ -132,7 +132,7 @@ export default function QuoteForm() {
         <div className="w-16 h-16 bg-mist rounded-full flex items-center justify-center mx-auto mb-5">
           <CheckCircle size={28} className="text-teal" />
         </div>
-        <h3 className="font-heading font-700 text-teal text-xl mb-3">Enquiry received</h3>
+        <h3 className="font-heading font-600 text-teal text-xl mb-3">Enquiry received</h3>
         {DEMO_MODE ? (
           <p className="font-ui text-stone text-sm leading-relaxed max-w-sm mx-auto">
             <strong>Demo mode:</strong> In production, this would be sent to the business. Configure{' '}
@@ -390,7 +390,7 @@ export default function QuoteForm() {
         <button
           type="submit"
           disabled={status === 'submitting'}
-          className="inline-flex items-center gap-2.5 px-8 py-4 bg-teal text-ivory font-heading font-700 text-sm rounded-full hover:bg-teal-light transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+          className="inline-flex items-center gap-2.5 px-8 py-4 bg-teal text-ivory font-heading font-600 text-sm rounded-full hover:bg-teal-light transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
           style={{ letterSpacing: '0.03em' }}
         >
           {status === 'submitting' ? (

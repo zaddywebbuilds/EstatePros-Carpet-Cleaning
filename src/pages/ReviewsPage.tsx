@@ -15,7 +15,7 @@ export default function ReviewsPage() {
   return (
     <>
       {/* Header */}
-      <section className="bg-teal py-20 px-4 sm:px-6">
+      <section className="panel-deep relative overflow-hidden mx-4 sm:mx-6 lg:mx-8 mt-4 mb-8 py-16 px-6 sm:px-12">
         <div className="max-w-7xl mx-auto max-w-2xl">
           <motion.p
             className="font-ui text-xs font-600 tracking-[0.2em] uppercase text-ivory/50 mb-4"
@@ -26,8 +26,8 @@ export default function ReviewsPage() {
             Customer Feedback
           </motion.p>
           <motion.h1
-            className="font-heading font-800 text-ivory leading-tight"
-            style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', letterSpacing: '-0.03em' }}
+            className="font-heading font-600 text-ivory leading-tight"
+            style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', letterSpacing: '-0.01em' }}
             initial={shouldReduce ? {} : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.08 }}
@@ -38,7 +38,7 @@ export default function ReviewsPage() {
       </section>
 
       {/* Reviews content */}
-      <section className="bg-ivory py-24 px-4 sm:px-6">
+      <section className="py-8 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={shouldReduce ? {} : { opacity: 0, y: 24 }}
@@ -61,7 +61,7 @@ export default function ReviewsPage() {
               ))}
             </div>
 
-            <h2 className="font-heading font-700 text-teal text-xl mb-4">
+            <h2 className="font-heading font-600 text-teal text-xl mb-4">
               Find our reviews on Google
             </h2>
             <p className="font-ui text-stone text-sm leading-relaxed mb-8 max-w-md mx-auto">
@@ -73,7 +73,7 @@ export default function ReviewsPage() {
               href={business.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 px-8 py-4 bg-teal text-ivory font-heading font-700 text-sm rounded-full hover:bg-teal-light transition-colors"
+              className="inline-flex items-center gap-2.5 px-8 py-4 bg-teal text-ivory font-heading font-600 text-sm rounded-full hover:bg-teal-light transition-colors"
               style={{ letterSpacing: '0.03em' }}
             >
               Read reviews on Google
@@ -93,7 +93,7 @@ export default function ReviewsPage() {
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="font-heading font-700 text-teal text-lg mb-3">Had a great experience?</p>
+            <p className="font-heading font-600 text-teal text-lg mb-3">Had a great experience?</p>
             <p className="font-ui text-stone text-sm mb-6 leading-relaxed">
               If you&rsquo;ve used EstatePros and would like to share your experience, we&rsquo;d love to hear from you.
               Leaving a Google review helps other Calgary homeowners make informed decisions.
@@ -102,7 +102,7 @@ export default function ReviewsPage() {
               href={business.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-heading font-700 text-champagne hover:text-champagne-dark transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-heading font-600 text-champagne hover:text-champagne-dark transition-colors"
             >
               Leave a review <ExternalLink size={13} strokeWidth={2.5} />
             </a>
@@ -111,7 +111,7 @@ export default function ReviewsPage() {
           <div className="mt-12">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-champagne text-ink font-heading font-700 text-sm rounded-full hover:bg-champagne-dark transition-colors"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-champagne text-ink font-heading font-600 text-sm rounded-full hover:bg-champagne-dark transition-colors"
               style={{ letterSpacing: '0.03em' }}
             >
               Request a quote <ArrowRight size={14} strokeWidth={2.5} />
