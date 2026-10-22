@@ -1,7 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Expand } from 'lucide-react'
+import Lightbox from '../components/Lightbox'
 
 const BASE = '/EstatePros-Carpet-Cleaning'
 
@@ -47,6 +48,7 @@ const galleryImages = [
 
 export default function GalleryPage() {
   const shouldReduce = useReducedMotion()
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
   useEffect(() => {
     document.title = 'Gallery | EstatePros Carpet Cleaning Calgary'
@@ -99,15 +101,24 @@ export default function GalleryPage() {
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.55, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
               >
-                <div className="relative overflow-hidden" style={{ aspectRatio: cols.includes('col-span-2') ? '16/7' : '4/3' }}>
+                <button
+                  type="button"
+                  onClick={() => setLightboxIndex(i)}
+                  aria-label={`View larger: ${caption}`}
+                  className="relative block w-full overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-champagne"
+                  style={{ aspectRatio: cols.includes('col-span-2') ? '16/7' : '4/3' }}
+                >
                   <img
                     src={src}
                     alt={alt}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-teal/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                </div>
+                  <span className="absolute inset-0 bg-gradient-to-t from-teal/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <span className="absolute bottom-4 right-4 flex h-9 w-9 translate-y-1 items-center justify-center rounded-full bg-white/90 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                    <Expand size={15} className="text-teal" />
+                  </span>
+                </button>
                 <figcaption className="px-5 py-3 border-t border-mist">
                   <p className="font-ui text-sm text-stone font-500">{caption}</p>
                   <p className="font-ui text-xs text-stone/60 mt-0.5 italic">Concept photography</p>
@@ -130,6 +141,17 @@ export default function GalleryPage() {
           </div>
         </div>
       </section>
+
+      <Lightbox
+        items={galleryImages.map(({ src, alt, caption }) => ({
+          src,
+          alt,
+          caption: `${caption} — concept photography`,
+        }))}
+        index={lightboxIndex}
+        onClose={() => setLightboxIndex(null)}
+        onNavigate={setLightboxIndex}
+      />
     </>
   )
 }

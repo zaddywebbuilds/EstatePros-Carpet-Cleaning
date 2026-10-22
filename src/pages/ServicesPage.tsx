@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Lock } from 'lucide-react'
 import { business } from '../config/business'
 import BeforeAfterSlider from '../components/BeforeAfterSlider'
+import ProcessTimeline from '../components/ProcessTimeline'
 
 const BASE = '/EstatePros-Carpet-Cleaning'
 
@@ -162,6 +163,9 @@ export default function ServicesPage() {
           })}
         </div>
       </section>
+
+      {/* Stays off the site until the owner confirms these are the real steps */}
+      {business.process.confirmed && <ProcessTimeline />}
 
       {/* Before / after sliders */}
       <section className="px-4 sm:px-6 lg:px-8 py-10" aria-labelledby="comparisons-heading">

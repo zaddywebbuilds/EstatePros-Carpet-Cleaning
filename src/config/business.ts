@@ -85,6 +85,39 @@ export const business = {
   // Illustrative before/after pairs for the comparison sliders.
   // These are concept visualizations, NOT photographs of completed jobs.
   // Swap in matched real client pairs once the owner supplies them.
+  // Cleaning process shown on the Services page.
+  // DRAFT WORDING - set confirmed: true only once the owner has agreed these
+  // are the actual steps. While false the whole section stays off the site.
+  process: {
+    confirmed: false,
+    steps: [
+      {
+        id: 'inspect',
+        name: 'Inspection',
+        detail:
+          'We walk the space with you, check fibre type and construction, and note the areas that need the most attention.',
+      },
+      {
+        id: 'pre-treat',
+        name: 'Pre-treatment',
+        detail:
+          'Traffic lanes and marked areas are treated first and given time to work before anything is rinsed.',
+      },
+      {
+        id: 'extract',
+        name: 'Hot water extraction',
+        detail:
+          'Hot water extraction lifts loosened soil out of the pile rather than pushing it further in.',
+      },
+      {
+        id: 'walkthrough',
+        name: 'Walkthrough',
+        detail:
+          'We go back over the work with you before we leave, and explain what to expect as the carpet dries.',
+      },
+    ],
+  },
+
   // Two pairs shipped from the asset pack showed a bathroom and a kitchen
   // counter, which is not work this business does, so they are not used here.
   comparisons: [
