@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Phone } from 'lucide-react'
-import { business, BASE } from '../config/business'
+import { business } from '../config/business'
 import OpenStatus from './OpenStatus'
 
 export default function ClosingCTA() {
@@ -17,23 +17,6 @@ export default function ClosingCTA() {
   return (
     <section className="section-y px-4 sm:px-6 lg:px-8" aria-labelledby="closing-cta-heading">
       <div className="panel-deep mx-auto max-w-7xl">
-        {/* Photograph bleeds in from the right and fades under the type */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 lg:block"
-          style={{
-            WebkitMaskImage: 'linear-gradient(to right, transparent, #000 60%)',
-            maskImage: 'linear-gradient(to right, transparent, #000 60%)',
-          }}
-        >
-          <img
-            src={`${BASE}/images/luxury-living-room.webp`}
-            alt=""
-            className="h-full w-full object-cover opacity-30"
-            loading="lazy"
-          />
-        </div>
-
         <div className="px-6 py-20 sm:px-12 lg:py-24">
           <div className="max-w-2xl">
             <motion.p className="section-eyebrow mb-6 !text-brass" {...reveal(0)}>

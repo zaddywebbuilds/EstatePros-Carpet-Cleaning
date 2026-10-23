@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
-import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowLeft, ArrowRight, AlertTriangle, Phone } from 'lucide-react'
+import { ArrowRight, AlertTriangle, Phone } from 'lucide-react'
 import { business } from '../config/business'
 import QuoteForm from '../components/QuoteForm'
+import PageHero from '../components/PageHero'
 
 type Content = { headline: string; body: string[]; notes: string[] }
 
@@ -92,7 +92,6 @@ const fallbackContent: Content = {
 
 export default function ServiceDetail() {
   const { serviceId } = useParams<{ serviceId: string }>()
-  const shouldReduce = useReducedMotion()
   const service = business.services.find((s) => s.id === serviceId)
 
   useEffect(() => {
@@ -121,48 +120,16 @@ export default function ServiceDetail() {
         </div>
       )}
 
-      {/* Hero: the service photograph carries it */}
-      <section className="px-4 pb-6 pt-4 sm:px-6 lg:px-8">
-        <div className="panel-deep mx-auto max-w-7xl">
-          <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-            <img src={service.image} alt="" className="h-full w-full object-cover opacity-25" />
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  'linear-gradient(to top, rgba(7,25,15,0.95) 0%, rgba(7,25,15,0.78) 45%, rgba(14,42,35,0.55) 100%)',
-              }}
-            />
-          </div>
-
-          <div className="px-6 py-16 sm:px-12 lg:py-20">
-            <Link
-              to="/services"
-              className="mb-8 inline-flex items-center gap-1.5 font-ui text-xs text-linen/60 transition-colors hover:text-linen"
-            >
-              <ArrowLeft size={13} /> All services
-            </Link>
-            <motion.h1
-              className="font-heading leading-[1.05] text-linen"
-              style={{ fontSize: 'clamp(2.2rem, 4.8vw, 3.8rem)', fontWeight: 400, letterSpacing: '-0.03em' }}
-              initial={shouldReduce ? {} : { opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              {service.name}
-            </motion.h1>
-            <motion.p
-              className="mt-5 max-w-lg font-ui leading-[1.7] text-linen/65"
-              style={{ fontSize: 'clamp(0.92rem, 1.5vw, 1.04rem)' }}
-              initial={shouldReduce ? {} : { opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              {service.shortDesc}
-            </motion.p>
-          </div>
-        </div>
-      </section>
+      {/* The service photograph is shown framed beside the title rather
+          than faded in behind it. */}
+      <PageHero
+        eyebrow="Service"
+        title={service.name}
+        intro={service.shortDesc}
+        image={service.image}
+        imageAlt={service.imageAlt}
+        backTo={{ to: '/services', label: 'All services' }}
+      />
 
       {/* Content + form */}
       <section className="section-y px-4 sm:px-6 lg:px-8">

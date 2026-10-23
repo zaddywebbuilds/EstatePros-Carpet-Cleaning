@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Lock } from 'lucide-react'
 import { business, BASE } from '../config/business'
 import ProcessTimeline from '../components/ProcessTimeline'
+import PageHero from '../components/PageHero'
 
 export default function ServicesPage() {
   const shouldReduce = useReducedMotion()
@@ -24,62 +25,13 @@ export default function ServicesPage() {
 
   return (
     <>
-      {/* Header - asymmetric, image on one side so it reads differently to the home hero */}
-      <section className="section-y px-4 sm:px-6 lg:px-8">
-        <div className="panel-deep relative overflow-hidden max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[1.1fr_1fr] items-stretch">
-            <div className="px-6 sm:px-12 py-14 lg:py-20">
-              <motion.p
-                className="section-eyebrow !text-brass mb-5"
-                initial={shouldReduce ? {} : { opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                What We Do
-              </motion.p>
-              <motion.h1
-                className="font-heading text-linen leading-[1.08]"
-                style={{ fontWeight: 400, fontSize: 'clamp(2.4rem, 5.2vw, 4.1rem)', letterSpacing: '-0.03em' }}
-                initial={shouldReduce ? {} : { opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.08 }}
-              >
-                Services built around
-                <br />
-                <span className="accent-italic">your space</span>
-              </motion.h1>
-              <motion.p
-                className="mt-6 font-ui text-linen/70 max-w-md leading-relaxed"
-                style={{ fontSize: 'clamp(0.9rem, 1.5vw, 1rem)' }}
-                initial={shouldReduce ? {} : { opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.16 }}
-              >
-                Enquire about any of the work below. We confirm what is right for your
-                particular space and situation before anything is booked in.
-              </motion.p>
-            </div>
-
-            <div className="relative min-h-[260px] lg:min-h-0">
-              <img
-                src={`${BASE}/images/technician-equipment-setup.webp`}
-                alt="Cleaning technician wheeling extraction equipment through a home entryway"
-                className="absolute inset-0 h-full w-full object-cover"
-                fetchPriority="high"
-                decoding="async"
-              />
-              <div
-                aria-hidden="true"
-                className="absolute inset-0"
-                style={{
-                  background:
-                    'linear-gradient(to right, rgba(14,42,35,0.96) 0%, rgba(14,42,35,0.45) 48%, rgba(14,42,35,0.05) 100%)',
-                }}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="What we do"
+        title={<>Services built around<br /><span className="accent-italic">your space</span></>}
+        intro="Enquire about any of the work below. We confirm what is right for your particular space and situation before anything is booked in."
+        image={`${BASE}/images/technician-equipment-setup.webp`}
+        imageAlt="Cleaning technician wheeling extraction equipment through a home entryway"
+      />
 
       {/* Editorial service blocks - alternating sides, not a repeated card grid */}
       <section className="section-y px-4 sm:px-6 lg:px-8" aria-label="Services offered">
@@ -100,15 +52,19 @@ export default function ServicesPage() {
                   }`}
                 >
                   <div className="relative min-h-[240px] md:min-h-[320px]">
-                    <img
-                      src={service.image}
-                      alt={service.imageAlt}
-                      className="absolute inset-0 h-full w-full object-cover"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    {/* inset-3 leaves the card's own white showing as a mat,
+                        so the photo is framed rather than bleeding to the edge */}
+                    <div className="absolute inset-3 overflow-hidden rounded-3xl bg-bone-deep">
+                      <img
+                        src={service.image}
+                        alt={service.imageAlt}
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
                     {!service.confirmed && (
-                      <div className="absolute left-5 top-5">
+                      <div className="absolute left-8 top-8">
                         <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-3.5 py-1.5 backdrop-blur-sm">
                           <Lock size={11} className="text-stone" />
                           <span className="font-ui text-[11px] font-600 tracking-wide text-stone">
