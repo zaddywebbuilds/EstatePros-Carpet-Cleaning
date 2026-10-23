@@ -47,7 +47,7 @@ export default function WorkGallery() {
           {images.map(({ src, alt, caption }, i) => (
             <motion.figure
               key={src}
-              className={`plate group relative rounded-4xl !bg-white ${
+              className={`group relative rounded-4xl border border-bone-deep/60 bg-white p-3 shadow-surface ${
                 ['sm:col-span-2 lg:col-span-5', 'lg:col-span-4', 'lg:col-span-3'][i] ?? 'lg:col-span-4'
               }`}
               initial={shouldReduce ? {} : { opacity: 0, scale: 0.97 }}
@@ -58,23 +58,23 @@ export default function WorkGallery() {
               <button
                 type="button"
                 onClick={() => setLightboxIndex(i)}
-                className="block w-full"
+                className="relative block w-full overflow-hidden rounded-3xl bg-bone-deep"
                 aria-label={`Open larger view: ${caption}`}
               >
                 <img
                   src={src}
                   alt={alt}
-                  className="aspect-[4/3] w-full object-cover transition-transform duration-[900ms] ease-smooth group-hover:scale-105 lg:aspect-auto lg:h-[24rem]"
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-[900ms] ease-smooth group-hover:scale-105 lg:aspect-auto lg:h-[21rem]"
                   width={768}
                   height={512}
                   loading="lazy"
                 />
-                <span className="absolute inset-0 bg-gradient-to-t from-forest-deep/70 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                <span className="absolute bottom-5 right-5 flex h-9 w-9 translate-y-1 items-center justify-center rounded-full bg-white/90 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <span className="absolute bottom-4 right-4 flex h-9 w-9 translate-y-1 items-center justify-center rounded-full bg-white/90 opacity-0 shadow-surface transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                   <Expand size={15} className="text-forest" />
                 </span>
               </button>
-              <figcaption className="pointer-events-none absolute bottom-5 left-6 translate-y-2 font-ui text-xs text-linen/90 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+              {/* Caption sits under the picture, not across it */}
+              <figcaption className="px-1 pb-1 pt-4 font-ui text-[0.78rem] text-stone">
                 {caption}
               </figcaption>
             </motion.figure>

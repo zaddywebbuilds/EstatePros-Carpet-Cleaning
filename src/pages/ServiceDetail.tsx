@@ -201,29 +201,25 @@ export default function ServiceDetail() {
                 <Link
                   key={other.id}
                   to={`/services/${other.id}`}
-                  className="plate group relative rounded-4xl !bg-forest-deep transition-all duration-500 hover:-translate-y-1 hover:shadow-surface-lg"
+                  className="service-card group flex flex-col"
                 >
-                  <img
-                    src={other.image}
-                    alt=""
-                    className="h-44 w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-0"
-                    style={{
-                      background:
-                        'linear-gradient(to top, rgba(7,25,15,0.92) 0%, rgba(7,25,15,0.35) 60%, rgba(7,25,15,0.05) 100%)',
-                    }}
-                  />
-                  <span className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 p-5">
-                    <span className="font-heading text-[1.1rem] text-linen" style={{ fontWeight: 500 }}>
+                  <div className="p-3 pb-0">
+                    <div className="overflow-hidden rounded-3xl bg-bone-deep">
+                      <img
+                        src={other.image}
+                        alt=""
+                        className="h-40 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  <span className="flex items-center justify-between gap-3 px-6 py-5">
+                    <span className="font-heading text-[1.1rem] text-forest" style={{ fontWeight: 500 }}>
                       {other.name}
                     </span>
                     <ArrowRight
                       size={16}
-                      className="shrink-0 text-brass transition-transform duration-300 group-hover:translate-x-1"
+                      className="shrink-0 text-brass-dark transition-transform duration-300 group-hover:translate-x-1"
                       strokeWidth={2.5}
                     />
                   </span>

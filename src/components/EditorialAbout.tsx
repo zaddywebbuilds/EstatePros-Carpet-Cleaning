@@ -35,13 +35,6 @@ export default function EditorialAbout() {
               className="h-full w-full object-cover object-top"
               loading="lazy"
             />
-            <span
-              className="absolute bottom-6 left-5 font-ui text-[0.6rem] uppercase tracking-[0.24em] text-linen/70"
-              style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
-              aria-hidden="true"
-            >
-              Caledonia Rd &bull; North York
-            </span>
           </motion.div>
 
           <motion.div
