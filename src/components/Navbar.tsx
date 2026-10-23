@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Phone, MapPin } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { business } from '../config/business'
+import Monogram from './Monogram'
+import OpenStatus from './OpenStatus'
 
 const navLinks = [
   { label: 'Home', to: '/' },
@@ -20,14 +22,13 @@ export default function Navbar() {
   const drawerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
+    const onScroll = () => setScrolled(window.scrollY > 32)
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  useEffect(() => {
-    setOpen(false)
-  }, [location])
+  useEffect(() => { setOpen(false) }, [location])
 
   useEffect(() => {
     if (open) {
@@ -49,47 +50,74 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Floating nav - a surface, never a full-bleed band */}
+      {/* Utility strip: address, hours and phone, above the nav proper.
+          Folds away on scroll so the floating bar stands alone. */}
+      <div
+        className={`hidden overflow-hidden transition-all duration-500 lg:block ${
+          scrolled ? 'max-h-0 opacity-0' : 'max-h-14 opacity-100'
+        }`}
+        aria-hidden={scrolled}
+      >
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-8 py-3 font-ui text-xs text-stone">
+          <span className="inline-flex items-center gap-2">
+            <MapPin size={13} className="text-brass-dark" strokeWidth={2} />
+            {business.addressFull}
+          </span>
+          <span className="inline-flex items-center gap-6">
+            <OpenStatus />
+            <a
+              href={`tel:${business.phone}`}
+              className="inline-flex items-center gap-2 transition-colors hover:text-forest"
+            >
+              <Phone size={13} className="text-brass-dark" strokeWidth={2} />
+              {business.phoneDisplay}
+            </a>
+          </span>
+        </div>
+      </div>
+
       <nav
-        className="sticky top-0 z-40 px-4 sm:px-6 lg:px-8 pt-4 pb-2"
+        className="sticky top-0 z-40 px-4 pb-2 pt-3 sm:px-6 lg:px-8"
         role="navigation"
         aria-label="Main navigation"
       >
         <div
-          className={`mx-auto max-w-7xl flex items-center justify-between gap-4 rounded-full px-4 sm:px-5 py-2.5 transition-all duration-500 ${
+          className={`mx-auto flex max-w-7xl items-center justify-between gap-4 rounded-full px-4 py-2.5 transition-all duration-500 sm:px-5 ${
             scrolled
-              ? 'bg-white/80 backdrop-blur-xl shadow-surface border border-white/70'
-              : 'bg-white/55 backdrop-blur-lg shadow-surface border border-white/60'
+              ? 'border border-white/80 bg-white/85 shadow-surface backdrop-blur-xl'
+              : 'border border-white/60 bg-white/55 shadow-surface backdrop-blur-lg'
           }`}
         >
-          {/* Logo */}
           <Link
             to="/"
-            className="flex items-center gap-2.5 shrink-0"
-            aria-label="EstatePros Carpet Cleaning - Home"
+            className="flex shrink-0 items-center gap-3"
+            aria-label={`${business.name} — Home`}
           >
-            <div className="w-9 h-9 bg-teal rounded-full flex items-center justify-center shrink-0">
-              <span className="text-ivory font-heading text-base" style={{ fontWeight: 600 }}>E</span>
-            </div>
-            <span className="font-heading text-teal text-xl leading-none" style={{ fontWeight: 600 }}>
-              Estate<span className="text-champagne-dark">Pros</span>
+            <Monogram className="h-10 w-10" />
+            <span className="hidden leading-tight sm:block">
+              <span className="block font-heading text-[1.06rem] text-forest" style={{ fontWeight: 600 }}>
+                Jose Cardoso
+              </span>
+              <span className="block font-ui text-[0.6rem] uppercase tracking-[0.24em] text-brass-dark">
+                Cleaning Service
+              </span>
             </span>
           </Link>
 
-          {/* Desktop links */}
-          <ul className="hidden lg:flex items-center gap-0.5" role="list">
+          <ul className="hidden items-center gap-0.5 lg:flex" role="list">
             {navLinks.map(({ label, to }) => (
               <li key={to}>
                 <NavLink
                   to={to}
                   end={to === '/'}
                   className={({ isActive }) =>
-                    `whitespace-nowrap px-3.5 py-2 text-sm font-ui font-500 rounded-full transition-all duration-200 ${
+                    `relative whitespace-nowrap rounded-full px-3.5 py-2 font-ui text-sm transition-all duration-200 ${
                       isActive
-                        ? 'text-teal bg-white/90 shadow-sm'
-                        : 'text-stone hover:text-teal hover:bg-white/60'
+                        ? 'bg-forest text-linen'
+                        : 'text-stone hover:bg-white/70 hover:text-forest'
                     }`
                   }
+                  style={{ fontWeight: 500 }}
                 >
                   {label}
                 </NavLink>
@@ -97,44 +125,40 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-3 shrink-0">
-            {business.phone && (
-              <a
-                href={`tel:${business.phone}`}
-                className="text-sm font-ui font-500 text-stone hover:text-teal transition-colors"
-              >
-                {business.phoneDisplay}
-              </a>
-            )}
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-teal px-6 py-2.5 font-sans text-sm text-ivory transition-all duration-300 hover:shadow-surface"
-              style={{ fontWeight: 600, letterSpacing: '0.02em' }}
-            >
+          <div className="hidden shrink-0 items-center gap-3 lg:flex">
+            <Link to="/contact" className="btn-primary !px-6 !py-2.5">
               {business.ctaQuoteLabel}
             </Link>
           </div>
 
-          {/* Mobile hamburger */}
-          <button
-            className="lg:hidden p-2 rounded-full text-teal hover:bg-white/70 transition-colors"
-            onClick={() => setOpen(!open)}
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            aria-label={open ? 'Close menu' : 'Open menu'}
-          >
-            {open ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          {/* Mobile: call button sits beside the hamburger, so the phone
+              number is always one tap away without opening the drawer. */}
+          <div className="flex items-center gap-1.5 lg:hidden">
+            <a
+              href={`tel:${business.phone}`}
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-forest text-linen transition-colors hover:bg-forest-light"
+              aria-label={`Call ${business.name}`}
+            >
+              <Phone size={17} strokeWidth={2} />
+            </a>
+            <button
+              className="rounded-full p-2 text-forest transition-colors hover:bg-white/70"
+              onClick={() => setOpen(!open)}
+              aria-expanded={open}
+              aria-controls="mobile-nav"
+              aria-label={open ? 'Close menu' : 'Open menu'}
+            >
+              {open ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
       </nav>
 
-      {/* Mobile drawer */}
       <AnimatePresence>
         {open && (
           <>
             <motion.div
-              className="fixed inset-0 z-50 bg-ink/60 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-50 bg-forest-deep/60 backdrop-blur-sm lg:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -148,41 +172,44 @@ export default function Navbar() {
               role="dialog"
               aria-label="Mobile navigation menu"
               tabIndex={-1}
-              className="fixed top-3 right-3 bottom-3 z-50 w-80 max-w-[90vw] bg-sand-warm rounded-4xl shadow-surface-lg border border-white/80 flex flex-col overflow-hidden lg:hidden"
+              className="fixed bottom-3 right-3 top-3 z-50 flex w-80 max-w-[90vw] flex-col overflow-hidden rounded-4xl border border-white/80 bg-linen shadow-surface-lg lg:hidden"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
             >
-              <div className="flex items-center justify-between px-6 py-5 border-b border-sand-deep">
-                <span className="font-heading text-teal text-xl" style={{ fontWeight: 600 }}>
-                  Estate<span className="text-champagne-dark">Pros</span>
-                </span>
+              <div className="flex items-center justify-between border-b border-bone-deep px-5 py-4">
+                <div className="flex items-center gap-2.5">
+                  <Monogram className="h-9 w-9" />
+                  <span className="font-heading text-lg text-forest" style={{ fontWeight: 600 }}>
+                    Jose Cardoso
+                  </span>
+                </div>
                 <button
                   onClick={() => setOpen(false)}
-                  className="p-2 rounded-full text-teal hover:bg-white/70 transition-colors"
+                  className="rounded-full p-2 text-forest transition-colors hover:bg-white"
                   aria-label="Close menu"
                 >
                   <X size={20} />
                 </button>
               </div>
 
-              <ul className="flex flex-col px-4 py-4 gap-1 flex-1" role="list">
+              <ul className="flex flex-1 flex-col gap-1 px-4 py-4" role="list">
                 {navLinks.map(({ label, to }, i) => (
                   <motion.li
                     key={to}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.06 + 0.1 }}
+                    transition={{ delay: i * 0.05 + 0.08 }}
                   >
                     <NavLink
                       to={to}
                       end={to === '/'}
                       className={({ isActive }) =>
-                        `block px-4 py-3 text-lg font-heading rounded-2xl transition-colors duration-200 ${
+                        `block rounded-2xl px-4 py-3 font-heading text-lg transition-colors duration-200 ${
                           isActive
-                            ? 'text-teal bg-white shadow-sm'
-                            : 'text-ink hover:text-teal hover:bg-white/70'
+                            ? 'bg-forest text-linen'
+                            : 'text-ink hover:bg-white hover:text-forest'
                         }`
                       }
                     >
@@ -192,22 +219,24 @@ export default function Navbar() {
                 ))}
               </ul>
 
-              <div className="px-6 py-6 border-t border-sand-deep">
-                <Link
-                  to="/contact"
-                  className="btn-primary w-full justify-center"
-                >
+              <div className="border-t border-bone-deep px-5 py-5">
+                <Link to="/contact" className="btn-primary w-full justify-center">
                   {business.ctaQuoteLabel}
                 </Link>
-                {business.phone && (
-                  <a
-                    href={`tel:${business.phone}`}
-                    className="mt-3 block text-center text-sm font-ui text-teal/70 hover:text-teal transition-colors"
-                  >
-                    {business.phoneDisplay}
-                  </a>
-                )}
-                <p className="mt-4 text-xs text-stone text-center">Serving Calgary, Alberta</p>
+                <a
+                  href={`tel:${business.phone}`}
+                  className="mt-3 block text-center font-ui text-sm text-forest transition-colors hover:text-brass-dark"
+                >
+                  {business.phoneDisplay}
+                </a>
+                <div className="mt-3 flex justify-center">
+                  <OpenStatus />
+                </div>
+                <p className="mt-3 text-center font-ui text-xs leading-relaxed text-stone">
+                  {business.streetAddress}
+                  <br />
+                  {business.addressLocality}, {business.provinceCode} {business.postalCode}
+                </p>
               </div>
             </motion.div>
           </>

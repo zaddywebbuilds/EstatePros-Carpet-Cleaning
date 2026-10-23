@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const dist = join(root, 'dist')
-const SITE = 'https://zaddywebbuilds.github.io/EstatePros-Carpet-Cleaning'
+const SITE = 'https://zaddywebbuilds.github.io/Jose-Cardoso-Cleaning-Service'
 
 const shell = readFileSync(join(dist, 'index.html'), 'utf8')
 
@@ -29,43 +29,43 @@ if (services.length === 0) throw new Error('no services parsed from business.ts'
 const routes = [
   {
     path: 'services',
-    title: 'Services | EstatePros Carpet Cleaning Calgary',
+    title: 'Services | Jose Cardoso Cleaning Service',
     description:
-      'Carpet, upholstery, area rug and commercial cleaning enquiries for homes and businesses across Calgary, Alberta.',
+      'Carpet, upholstery, area rug and commercial cleaning enquiries for homes and businesses across North York, Ontario.',
   },
   {
     path: 'about',
-    title: 'Our Approach | EstatePros Carpet Cleaning Calgary',
+    title: 'Our Approach | Jose Cardoso Cleaning Service',
     description:
-      'How EstatePros approaches carpet care in Calgary: listening first, preparing properly, and treating every enquiry as a conversation.',
+      'How Jose Cardoso Cleaning Service approaches carpet care in North York: listening first, preparing properly, and treating every enquiry as a conversation.',
   },
   {
     path: 'gallery',
-    title: 'Before & After | EstatePros Carpet Cleaning Calgary',
+    title: 'Before & After | Jose Cardoso Cleaning Service',
     description:
-      'Drag through before and after comparisons showing the kind of change carpet cleaning can make. Illustrative visualizations.',
+      'Drag through before and after comparisons showing the kind of change a proper clean makes. Illustrative visualizations.',
   },
   {
     path: 'reviews',
-    title: 'Reviews | EstatePros Carpet Cleaning Calgary',
+    title: 'Reviews | Jose Cardoso Cleaning Service',
     description:
-      'Read what Calgary homeowners and businesses say about EstatePros on our Google Business Profile.',
+      'Rated 5.0 on Google. Read what North York customers say about Jose Cardoso Cleaning Service, quoted as written.',
   },
   {
     path: 'contact',
-    title: 'Contact & Quote | EstatePros Carpet Cleaning Calgary',
+    title: 'Contact & Quote | Jose Cardoso Cleaning Service',
     description:
-      'Tell us about your space and we will help you plan the next step. Serving Calgary, Alberta.',
+      'Call (438) 922-6861 or send an enquiry. Jose Cardoso Cleaning Service, 991 Caledonia Rd, North York, Monday to Friday 8am to 5pm.',
   },
   {
     path: 'privacy',
-    title: 'Privacy Policy | EstatePros Carpet Cleaning Calgary',
-    description: 'How EstatePros Carpet Cleaning handles personal information under PIPEDA.',
+    title: 'Privacy Policy | Jose Cardoso Cleaning Service',
+    description: 'How Jose Cardoso Cleaning Service handles personal information under PIPEDA.',
   },
   ...services.map((s) => ({
     path: `services/${s.id}`,
-    title: `${s.name} | EstatePros Carpet Cleaning Calgary`,
-    description: `${s.name} enquiries for homes and businesses across Calgary, Alberta.`,
+    title: `${s.name} | Jose Cardoso Cleaning Service`,
+    description: `${s.name} for homes and businesses across North York and Toronto. Call (438) 922-6861 for a quote.`,
   })),
 ]
 

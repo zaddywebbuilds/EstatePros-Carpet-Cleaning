@@ -1,99 +1,114 @@
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowRight, MessageCircle } from 'lucide-react'
+import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { business } from '../config/business'
 
 export default function ServiceGrid() {
   const shouldReduce = useReducedMotion()
-  const confirmedServices = business.services.filter(s => s.confirmed)
+  const services = business.services.filter((s) => s.confirmed)
 
   return (
-    <section className="py-8 px-4 sm:px-6" aria-labelledby="services-heading">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
-          <div>
-            <p className="section-eyebrow mb-3">What We Do</p>
-            <h2 id="services-heading" className="section-heading text-teal text-balance">
-              Services built around<br />your space
+    <section className="px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="services-heading">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-xl">
+            <p className="section-eyebrow mb-5">What We Do</p>
+            <h2 id="services-heading" className="section-heading text-balance">
+              Cleaning built around
+              <br />
+              <span className="accent-italic">your space</span>
             </h2>
           </div>
-          <Link
-            to="/services"
-            className="inline-flex items-center gap-2 text-sm font-heading font-600 text-champagne hover:text-champagne-dark transition-colors shrink-0"
-          >
-            View all services <ArrowRight size={14} strokeWidth={2.5} />
+          <Link to="/services" className="link-arrow shrink-0">
+            View all services <ArrowRight size={15} strokeWidth={2.5} />
           </Link>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          {/* Confirmed service cards */}
-          {confirmedServices.map((service, i) => (
-            <motion.div
+        {/* The first service runs wide; the rest tile beneath it. */}
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service, i) => (
+            <motion.article
               key={service.id}
-              className="service-card group"
-              initial={shouldReduce ? {} : { opacity: 0, y: 24 }}
+              className={`group relative overflow-hidden rounded-4xl bg-forest-deep shadow-surface transition-shadow duration-500 hover:shadow-surface-lg ${
+                i === 0 ? 'sm:col-span-2' : ''
+              }`}
+              initial={shouldReduce ? {} : { opacity: 0, y: 26 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '240px' }}
-              transition={{ duration: 0.55, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, margin: '140px' }}
+              transition={{ duration: 0.6, delay: (i % 3) * 0.08, ease: [0.22, 1, 0.36, 1] }}
             >
-              {/* Image */}
-              <div className="relative h-52 overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.imageAlt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-teal/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
+              <img
+                src={service.image}
+                alt={service.imageAlt}
+                className={`w-full object-cover transition-transform duration-[900ms] ease-smooth group-hover:scale-[1.06] ${
+                  i === 0 ? 'h-72 sm:h-[22rem]' : 'h-72'
+                }`}
+                loading="lazy"
+              />
 
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="font-heading font-600 text-teal text-lg mb-2">{service.name}</h3>
-                <p className="body-copy text-stone mb-5 text-sm">{service.shortDesc}</p>
-                <div className="flex items-center gap-4">
-                  <Link
-                    to={`/services/${service.id}`}
-                    className="text-sm font-heading font-600 text-teal hover:text-teal-light transition-colors flex items-center gap-1"
-                  >
-                    Learn more <ArrowRight size={13} strokeWidth={2.5} />
-                  </Link>
-                  <Link
-                    to="/contact"
-                    className="ml-auto text-xs font-heading font-600 text-champagne hover:text-champagne-dark transition-colors"
-                  >
-                    Get a quote
-                  </Link>
-                </div>
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 transition-opacity duration-500"
+                style={{
+                  background:
+                    'linear-gradient(to top, rgba(7,25,15,0.95) 0%, rgba(7,25,15,0.68) 38%, rgba(7,25,15,0.12) 72%, rgba(7,25,15,0.05) 100%)',
+                }}
+              />
+
+              <span
+                className="absolute right-5 top-5 font-heading text-linen/25 transition-colors duration-500 group-hover:text-brass/60"
+                style={{ fontSize: '1.6rem', fontWeight: 400, lineHeight: 1 }}
+                aria-hidden="true"
+              >
+                {String(i + 1).padStart(2, '0')}
+              </span>
+
+              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7">
+                <h3
+                  className="font-heading leading-snug text-linen"
+                  style={{ fontSize: i === 0 ? '1.65rem' : '1.3rem', fontWeight: 500 }}
+                >
+                  {service.name}
+                </h3>
+                <p className="mt-2 max-w-md font-ui text-[0.85rem] leading-relaxed text-linen/70">
+                  {service.shortDesc}
+                </p>
+
+                <Link
+                  to={`/services/${service.id}`}
+                  className="mt-5 inline-flex items-center gap-2 rounded-full border border-linen/25 px-5 py-2.5 font-ui text-[0.8rem] text-linen transition-all duration-300 hover:border-brass hover:bg-brass hover:text-forest-deep"
+                  style={{ fontWeight: 600 }}
+                >
+                  Learn more
+                  <ArrowUpRight size={14} strokeWidth={2.5} />
+                  <span className="sr-only">about {service.name}</span>
+                </Link>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
 
-          {/* Ask about your space card */}
+          {/* Catch-all so an unlisted job still has somewhere to land */}
           <motion.div
-            className="rounded-2xl border-2 border-dashed border-mist bg-mist/30 flex flex-col items-center justify-center text-center px-8 py-10 min-h-[320px]"
-            initial={shouldReduce ? {} : { opacity: 0, y: 24 }}
+            className="flex flex-col justify-between rounded-4xl border border-dashed border-forest/20 bg-sage/40 p-7"
+            initial={shouldReduce ? {} : { opacity: 0, y: 26 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '240px' }}
-            transition={{ duration: 0.55, delay: confirmedServices.length * 0.1, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, margin: '140px' }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="w-12 h-12 bg-teal/10 rounded-2xl flex items-center justify-center mb-5">
-              <MessageCircle size={22} className="text-teal" strokeWidth={1.5} />
+            <div>
+              <h3 className="font-heading text-[1.3rem] leading-snug text-forest" style={{ fontWeight: 500 }}>
+                Something else?
+              </h3>
+              <p className="mt-3 font-ui text-[0.85rem] leading-relaxed text-stone">
+                Move-outs, post-renovation cleans, one-off jobs. Describe the space and
+                we&rsquo;ll tell you honestly whether it&rsquo;s work we take on.
+              </p>
             </div>
-            <h3 className="font-heading font-600 text-teal text-lg mb-3">Ask about your space</h3>
-            <p className="font-ui text-stone text-sm leading-relaxed mb-6">
-              Upholstery, area rugs, commercial spaces, and more. Tell us what you&rsquo;re working with
-              and we&rsquo;ll let you know how we can help.
-            </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-teal text-ivory font-heading font-600 text-sm rounded-full hover:bg-teal-light transition-colors"
-            >
-              Send an enquiry <ArrowRight size={14} strokeWidth={2.5} />
+            <Link to="/contact" className="btn-primary mt-7 w-full !px-6">
+              Send an enquiry
+              <ArrowRight size={14} strokeWidth={2.5} />
             </Link>
           </motion.div>
-
         </div>
       </div>
     </section>

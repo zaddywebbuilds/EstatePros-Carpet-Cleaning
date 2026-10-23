@@ -42,7 +42,7 @@ export default function StickyQuoteBar() {
             {business.phone && (
               <a
                 href={`tel:${business.phone}`}
-                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-mist text-teal transition-colors hover:bg-mist/70"
+                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-sage text-forest transition-colors hover:bg-sage/70"
                 aria-label={`Call ${business.name}`}
               >
                 <Phone size={18} strokeWidth={2} />
@@ -51,7 +51,7 @@ export default function StickyQuoteBar() {
 
             <Link
               to="/contact"
-              className="flex h-12 flex-1 items-center justify-center gap-2 rounded-full bg-teal font-sans text-sm text-ivory transition-colors hover:bg-teal-light"
+              className="flex h-12 flex-1 items-center justify-center gap-2 rounded-full bg-forest font-sans text-sm text-linen transition-colors hover:bg-forest-light"
               style={{ fontWeight: 600, letterSpacing: '0.02em' }}
             >
               {business.ctaQuoteLabel}

@@ -26,7 +26,7 @@ export default function BeforeAfterSlider({
 
   return (
     <figure className="surface-solid overflow-hidden">
-      <div className="relative aspect-[4/5] sm:aspect-[3/4] w-full select-none overflow-hidden bg-sand-deep">
+      <div className="relative aspect-[4/5] sm:aspect-[3/4] w-full select-none overflow-hidden bg-bone-deep">
         {/* After sits underneath */}
         <img
           src={afterSrc}
@@ -59,7 +59,7 @@ export default function BeforeAfterSlider({
           aria-hidden="true"
         >
           <span className="absolute top-1/2 left-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-surface">
-            <span className="font-ui text-xs font-600 tracking-widest text-teal">&#8596;</span>
+            <span className="font-ui text-xs font-600 tracking-widest text-forest">&#8596;</span>
           </span>
         </div>
 
@@ -78,12 +78,12 @@ export default function BeforeAfterSlider({
       </div>
 
       <figcaption className="px-6 py-5">
-        <p id={labelId} className="font-heading text-teal text-xl" style={{ fontWeight: 600 }}>
+        <p id={labelId} className="font-heading text-forest text-xl" style={{ fontWeight: 600 }}>
           {title}
         </p>
         <p className="mt-1.5 font-ui text-sm leading-relaxed text-stone">{caption}</p>
         <p className="mt-3 font-ui text-xs italic text-stone/80">
-          Illustrative visualization &mdash; not a photograph of a completed EstatePros job.
+          Illustrative visualization &mdash; not a photograph of a completed Jose Cardoso Cleaning Service job.
         </p>
       </figcaption>
     </figure>

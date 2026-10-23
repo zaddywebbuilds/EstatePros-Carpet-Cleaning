@@ -1,8 +1,9 @@
-# EstatePros Carpet Cleaning
+# Jose Cardoso Cleaning Service
 
-Production website for EstatePros Carpet Cleaning, serving Calgary, Alberta.
+Website for Jose Cardoso Cleaning Service — 991 Caledonia Rd, North York, Ontario.
 
-**Live site:** https://zaddywebbuilds.github.io/EstatePros-Carpet-Cleaning/
+**Live site:** https://zaddywebbuilds.github.io/Jose-Cardoso-Cleaning-Service/
+**Google Business Profile:** [Jose Cardoso Cleaning Service](https://www.google.com/maps/place/Jose+Cardoso+Cleaning+Service/@43.709131,-79.4656956,17z/)
 
 ## Stack
 
@@ -19,70 +20,103 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:5173/EstatePros-Carpet-Cleaning/
+Open http://localhost:5173/Jose-Cardoso-Cleaning-Service/
 
 ## Build
 
 ```bash
 npm run build
-npm run preview  # preview the production build locally
+```
+
+`build` runs Vite and then `scripts/prerender.mjs`, which writes a real
+`dist/<route>/index.html` for every route. GitHub Pages otherwise answers an
+unknown path with a 404, and link crawlers discard metadata on a 404, so a
+shared `/reviews` link would preview as a bare hostname.
+
+```bash
+npm run preview   # serve the production build locally
+npm run typecheck # tsc -b
 ```
 
 ## Deploy
 
-Automated via GitHub Actions on push to `master`. The workflow builds and deploys to GitHub Pages.
+Automated by GitHub Actions on push to `master` (`.github/workflows/deploy.yml`).
 
-**First-time setup:**
-1. In your GitHub repo: Settings → Pages → Source: GitHub Actions
-2. Push to `master` — the action deploys automatically
+**First-time setup:** Settings → Pages → Source: GitHub Actions, then push to `master`.
 
-## Owner configuration checklist
+## Where the content lives
 
-Edit `src/config/business.ts` to add verified business details:
+`src/config/business.ts` is the single source of truth for name, phone,
+address, hours, services, coordinates, service areas and reviews. Components
+read from it rather than hard-coding anything.
 
-| Field | Status | Notes |
-|-------|--------|-------|
-| `phone` / `phoneDisplay` | Placeholder | Add once verified |
-| `email` | Placeholder | Add once verified |
-| `address` / `postalCode` | Placeholder | Add if business has a physical address |
-| `businessHours` | Placeholder | Add once confirmed |
-| `formEndpoint` | Empty | Set Formspree/Netlify endpoint |
-| `freeQuotes` | `false` | Set `true` only if quotes are confirmed free |
-| Services `confirmed` flags | Only `carpet-cleaning: true` | Set others to `true` once owner confirms |
-| Social profiles | `null` | Add once verified |
+Everything in that file marked *Verified* was read off the company's Google
+Business Profile on 2026-10-23:
+
+| Field | Value |
+|-------|-------|
+| Phone | (438) 922-6861 |
+| Address | 991 Caledonia Rd, North York, ON M6B 3Y7 |
+| Hours | Mon–Fri 8:00am–5:00pm, closed weekends |
+| Rating | 5.0 from 1 Google review |
+| Category | Cleaning service |
+
+Still unverified — see `OWNER_APPROVAL_CHECKLIST.md`:
+
+| Field | Status |
+|-------|--------|
+| `email` | `null` — no email on the Google listing |
+| `formEndpoint` | Empty — the form runs in demo mode until this is set |
+| `freeQuotes` | `false` — set `true` only once the owner confirms |
+| `social.facebook` / `social.instagram` | `null` |
+| Service list | Proposed, not owner-confirmed (Google lists only "Cleaning service") |
 
 ## Connect the contact form
 
-**Option A — Formspree (recommended for GitHub Pages):**
+The form shows a visible "demo mode" banner and delivers nothing until
+`formEndpoint` is set.
+
+**Formspree (recommended for GitHub Pages):**
 1. Create a form at https://formspree.io
-2. Copy the endpoint URL (e.g. `https://formspree.io/f/xabcdefg`)
+2. Copy the endpoint (e.g. `https://formspree.io/f/xabcdefg`)
 3. Set `formEndpoint` in `src/config/business.ts`
 
-**Option B — Netlify Forms:**
-1. Deploy to Netlify instead
-2. Add `data-netlify="true"` to the form element in `QuoteForm.tsx`
-3. Remove the fetch call and use Netlify's built-in handling
+**Netlify Forms:** deploy to Netlify, add `data-netlify="true"` to the form in
+`QuoteForm.tsx`, and drop the `fetch` call.
 
-## Replace imagery
+## Imagery
 
-All images in `public/images/` are editorial concept photography. Replace with authorized company imagery:
+Everything in `public/images/` is editorial concept photography, not
+photographs of this company's work. The before/after sliders and the gallery
+both say so on the page. Replace with authorized company photography when it
+is available:
 
-- `estatepros-hero-living-room.webp` — main hero background
-- `estatepros-technician-extraction.webp` — service/process sections
-- `estatepros-upholstery-detail.webp` — upholstery service (when confirmed)
-- `estatepros-carpet-wand-detail.webp` — detail/closing CTA
+- `hero-living-room.webp` — home hero
+- `technician-extraction.webp` — approach section
+- `carpet-wand-detail.webp`, `upholstery-detail.webp` — gallery details
+- `technician-equipment-setup.webp` — services header and gallery
+- `before-after/*.webp` — comparison sliders
 
-## Add custom domain
+## Design system
 
-1. Add a `CNAME` file to `public/` with the domain (e.g. `estatepros.ca`)
-2. Update `siteUrl` and `basePath` in `src/config/business.ts`
-3. Update `base` in `vite.config.ts` to `'/'`
-4. Update all references in `index.html` and `public/sitemap.xml`
+Tokens live in `tailwind.config.ts` and `src/index.css`.
 
-## Local SEO TODO
+- **Colour** — `forest` (deep evergreen, the brand), `brass` (the single
+  accent), `linen` / `bone` (paper grounds), `sage` (cool tint), `stone` (body
+  text).
+- **Type** — Fraunces for display, Inter for UI.
+- **Surfaces** — `.surface` (translucent card), `.panel-deep` (dark panel with
+  a brass bloom), `.service-card`, `.float-card`.
+- **Buttons** — `.btn-primary`, `.btn-brass`, `.btn-ghost`,
+  `.btn-outline-light`, `.link-arrow`.
 
-Once business details are verified:
-- Add `aggregateRating` to the JSON-LD in `index.html` (only with real verified data)
-- Add `OpeningHoursSpecification` to JSON-LD
-- Add `telephone` and `email` to JSON-LD
-- Add canonical URLs per page
+The page background is two fixed radial washes plus an SVG grain layer applied
+to `body::before` / `body::after`, so long pages keep an even light.
+
+## Add a custom domain
+
+1. Add `public/CNAME` containing the domain
+2. Set `siteUrl` and `basePath` in `src/config/business.ts` (`basePath` → `''`)
+3. Set `base` to `'/'` in `vite.config.ts`
+4. Update the URLs in `index.html`, `public/404.html`, `public/robots.txt`,
+   `public/sitemap.xml` and `SITE` in `scripts/prerender.mjs`

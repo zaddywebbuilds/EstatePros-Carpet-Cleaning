@@ -1,102 +1,124 @@
-// Central business configuration for EstatePros Carpet Cleaning
-// Replace PLACEHOLDER values with owner-verified data before launch
+// Central business configuration for Jose Cardoso Cleaning Service
+//
+// Everything under "Verified" was read off the company's own Google Business
+// Profile on 2026-10-23. Everything under "Unverified" is still waiting on the
+// owner — see OWNER_APPROVAL_CHECKLIST.md before launch.
 
 export const business = {
-  name: 'EstatePros Carpet Cleaning',
-  shortName: 'EstatePros',
-  tagline: 'Beautiful spaces. Brilliantly cared for.',
-  city: 'Calgary',
-  province: 'Alberta',
+  name: 'Jose Cardoso Cleaning Service',
+  shortName: 'Jose Cardoso',
+  initials: 'JC',
+  tagline: 'Thorough work. Every room. Every time.',
+  city: 'North York',
+  region: 'Toronto',
+  province: 'Ontario',
+  provinceCode: 'ON',
   country: 'Canada',
   countryCode: 'CA',
 
-  // UNVERIFIED - update with owner-confirmed data
-  phone: null as string | null,          // e.g. '+14031234567'
-  phoneDisplay: null as string | null,   // e.g. '(403) 123-4567'
-  email: null as string | null,          // e.g. 'hello@estatepros.ca'
-  address: null as string | null,
-  postalCode: null as string | null,
-  businessHours: null as string | null,  // e.g. 'Mon–Fri 8am–6pm, Sat 9am–4pm'
+  // Verified — Google Business Profile, 2026-10-23
+  phone: '+14389226861',
+  phoneDisplay: '(438) 922-6861',
+  streetAddress: '991 Caledonia Rd',
+  addressLocality: 'North York',
+  postalCode: 'M6B 3Y7',
+  addressFull: '991 Caledonia Rd, North York, ON M6B 3Y7, Canada',
+  plusCode: 'PG5M+MP North York, Ontario',
 
-  // Google Business Profile (verified listing exists)
-  googleMapsUrl: 'https://www.google.com/maps/place/EstatePros+Carpet+Cleaning/@51.0860872,-114.0440112,10z/data=!3m1!4b1!4m6!3m5!1s0x20aa5244cb8ef709:0xf98cf8b9469edc5a!8m2!3d51.0860872!4d-114.0440112!16s%2Fg%2F11ntp89kds',
-  coordinates: { lat: 51.0860872, lng: -114.0440112 },
+  // Verified — Mon to Fri 8am–5pm, closed weekends
+  hours: [
+    { day: 'Monday', short: 'Mon', open: '08:00', close: '17:00' },
+    { day: 'Tuesday', short: 'Tue', open: '08:00', close: '17:00' },
+    { day: 'Wednesday', short: 'Wed', open: '08:00', close: '17:00' },
+    { day: 'Thursday', short: 'Thu', open: '08:00', close: '17:00' },
+    { day: 'Friday', short: 'Fri', open: '08:00', close: '17:00' },
+    { day: 'Saturday', short: 'Sat', open: null, close: null },
+    { day: 'Sunday', short: 'Sun', open: null, close: null },
+  ] as { day: string; short: string; open: string | null; close: string | null }[],
+  businessHours: 'Mon–Fri 8:00am–5:00pm · Closed weekends',
+  timeZone: 'America/Toronto',
 
-  // Form backend
-  // Set to your Formspree endpoint e.g. 'https://formspree.io/f/xabcdefg'
-  // Or configure Netlify Forms / custom serverless endpoint
+  // Verified — Google Business Profile
+  googleMapsUrl:
+    'https://www.google.com/maps/place/Jose+Cardoso+Cleaning+Service/@43.709131,-79.4656956,17z/data=!3m1!4b1!4m6!3m5!1s0x882b334a344e6131:0x6ccbd6cbfa7e2c22!8m2!3d43.709131!4d-79.4656956!16s%2Fg%2F11my3f935_',
+  googleReviewUrl:
+    'https://search.google.com/local/writereview?placeid=ChIJMWFONEozK4gRIix--svWy2w',
+  coordinates: { lat: 43.709131, lng: -79.4656956 },
+  googleRating: 5.0,
+  googleReviewCount: 1,
+
+  // Unverified — no email or website listed on the Google profile
+  email: null as string | null,
+
+  // Form backend. Set to a Formspree endpoint (https://formspree.io/f/xxxx)
+  // or another handler before launch; empty means the form stays client-side.
   formEndpoint: '',
 
-  // Quote policy
-  // Set freeQuotes: true only when owner confirms quotes are free
+  // Quote policy. Set freeQuotes true only once the owner confirms it.
   freeQuotes: false,
   ctaQuoteLabel: 'Request a Quote',
 
-  // Services - set confirmed: true only for owner-approved services
-  // Draft pages for unconfirmed services are created but marked noindex
+  // Services. The Google profile lists the category as "Cleaning service"
+  // without a breakdown, so these are the proposed set for owner sign-off.
   services: [
     {
       id: 'carpet-cleaning',
       name: 'Carpet Cleaning',
-      shortDesc: 'Deep extraction cleaning for wall-to-wall carpets and open-plan spaces.',
+      shortDesc: 'Deep hot water extraction for wall-to-wall carpet, stairs and open-plan floors.',
       confirmed: true,
       featured: true,
-      image: '/EstatePros-Carpet-Cleaning/images/carpet-extraction.webp',
+      image: '/Jose-Cardoso-Cleaning-Service/images/carpet-extraction.webp',
       imageAlt: 'Extraction wand drawing a clean path across light wall-to-wall carpet beside a sofa',
     },
     {
       id: 'upholstery-cleaning',
       name: 'Upholstery Cleaning',
-      shortDesc: 'Careful fabric care for sofas, chairs, and upholstered pieces.',
-      confirmed: false,
-      featured: false,
-      image: '/EstatePros-Carpet-Cleaning/images/upholstery-extraction.webp',
+      shortDesc: 'Careful fabric work on sofas, sectionals, dining chairs and headboards.',
+      confirmed: true,
+      featured: true,
+      image: '/Jose-Cardoso-Cleaning-Service/images/upholstery-extraction.webp',
       imageAlt: 'Hand guiding an upholstery extraction tool across a woven sofa cushion',
     },
     {
       id: 'area-rug-cleaning',
       name: 'Area Rug Cleaning',
-      shortDesc: 'Specialist handling for area rugs of various fibers and constructions.',
-      confirmed: false,
-      featured: false,
-      image: '/EstatePros-Carpet-Cleaning/images/area-rug-care.webp',
+      shortDesc: 'Fibre-appropriate handling for wool, synthetic and hand-knotted rugs.',
+      confirmed: true,
+      featured: true,
+      image: '/Jose-Cardoso-Cleaning-Service/images/area-rug-care.webp',
       imageAlt: 'Patterned area rug on hardwood being cleaned with an extraction wand',
     },
     {
       id: 'stain-odour-treatment',
       name: 'Stain & Odour Treatment',
-      shortDesc: 'Targeted treatment for isolated stains and persistent odours.',
-      confirmed: false,
+      shortDesc: 'Targeted work on pet accidents, spills and the smells that outlast them.',
+      confirmed: true,
       featured: false,
-      image: '/EstatePros-Carpet-Cleaning/images/pet-stain-example.webp',
+      image: '/Jose-Cardoso-Cleaning-Service/images/pet-stain-example.webp',
       imageAlt: 'Dog resting on pale carpet beside a trail of dried paw marks',
     },
     {
-      id: 'commercial-carpet-cleaning',
-      name: 'Commercial Carpet Cleaning',
-      shortDesc: 'Scheduled maintenance and deep cleans for commercial spaces.',
-      confirmed: false,
+      id: 'commercial-cleaning',
+      name: 'Commercial Cleaning',
+      shortDesc: 'Scheduled maintenance and deep cleans for offices, suites and common areas.',
+      confirmed: true,
       featured: false,
-      image: '/EstatePros-Carpet-Cleaning/images/commercial-carpet-cleaning.webp',
+      image: '/Jose-Cardoso-Cleaning-Service/images/commercial-carpet-cleaning.webp',
       imageAlt: 'Open-plan office with desks and glass partitions, carpet being cleaned along a walkway',
     },
     {
       id: 'tile-grout-cleaning',
       name: 'Tile & Grout Cleaning',
       shortDesc: 'Hard floor and grout line cleaning for kitchens, entryways and bathrooms.',
-      confirmed: false,
+      confirmed: true,
       featured: false,
-      image: '/EstatePros-Carpet-Cleaning/images/tile-grout-cleaning.webp',
+      image: '/Jose-Cardoso-Cleaning-Service/images/tile-grout-cleaning.webp',
       imageAlt: 'Rotary hard floor tool cleaning large format tile and the grout lines between',
     },
   ],
 
-  // Illustrative before/after pairs for the comparison sliders.
-  // These are concept visualizations, NOT photographs of completed jobs.
-  // Swap in matched real client pairs once the owner supplies them.
-  // Cleaning process shown on the Services page.
-  // Owner-confirmed 2026-10-22. Set confirmed back to false if the steps
-  // change, and the whole section drops off the site until re-approved.
+  // The cleaning process shown on the Services page. Set confirmed back to
+  // false if the steps change and the whole section drops off the site.
   process: {
     confirmed: true,
     steps: [
@@ -122,20 +144,20 @@ export const business = {
         id: 'walkthrough',
         name: 'Walkthrough',
         detail:
-          'We go back over the work with you before we leave, and explain what to expect as the carpet dries.',
+          'We go back over the work with you before we leave, and explain what to expect as everything dries.',
       },
     ],
   },
 
-  // Two pairs shipped from the asset pack showed a bathroom and a kitchen
-  // counter, which is not work this business does, so they are not used here.
+  // Illustrative before/after pairs. These are concept visualizations, NOT
+  // photographs of completed jobs. Swap in real matched pairs once supplied.
   comparisons: [
     {
       id: 'residential-carpet',
       title: 'Residential carpet',
       caption: 'Settled soil through the main walkway of a living room, lifted by hot water extraction.',
-      before: '/EstatePros-Carpet-Cleaning/images/before-after/carpet-comparison-before.webp',
-      after: '/EstatePros-Carpet-Cleaning/images/before-after/carpet-comparison-after.webp',
+      before: '/Jose-Cardoso-Cleaning-Service/images/before-after/carpet-comparison-before.webp',
+      after: '/Jose-Cardoso-Cleaning-Service/images/before-after/carpet-comparison-after.webp',
       beforeAlt: 'Living room carpet beside a stone fireplace showing dulled traffic lanes and scattered marks',
       afterAlt: 'The same living room carpet cleaned, with an even tone and the pile lifted',
     },
@@ -143,22 +165,47 @@ export const business = {
       id: 'commercial-carpet',
       title: 'Commercial floor',
       caption: 'Heavy traffic lanes across an open-plan office, cleaned back to an even tone.',
-      before: '/EstatePros-Carpet-Cleaning/images/before-after/upholstery-comparison-before.webp',
-      after: '/EstatePros-Carpet-Cleaning/images/before-after/upholstery-comparison-after.webp',
+      before: '/Jose-Cardoso-Cleaning-Service/images/before-after/upholstery-comparison-before.webp',
+      after: '/Jose-Cardoso-Cleaning-Service/images/before-after/upholstery-comparison-after.webp',
       beforeAlt: 'Open-plan office carpet with dark soiling worn along the walkway between desks',
       afterAlt: 'The same office carpet cleaned, with the loop texture reading evenly across the floor',
     },
   ],
 
-  // Social - update when profiles are verified
+  // Verified — the only review on the Google profile, quoted with attribution.
+  reviews: [
+    {
+      author: 'Jake Den Adel',
+      meta: 'Local Guide · 194 reviews',
+      rating: 5,
+      when: '5 years ago',
+      body: 'Very thorough cleaning services from this company. I would definitely hire them again!',
+    },
+  ],
+
+  // Neighbourhoods the Caledonia Rd base sits closest to. Exact coverage is
+  // confirmed per enquiry — the site says so wherever this list appears.
+  serviceAreas: [
+    'North York',
+    'Caledonia–Fairbank',
+    'Yorkdale–Glen Park',
+    'Lawrence Heights',
+    'Briar Hill–Belgravia',
+    'Downsview',
+    'Forest Hill',
+    'Midtown Toronto',
+  ],
+
+  // Unverified — no profiles listed on the Google Business Profile
   social: {
     facebook: null as string | null,
     instagram: null as string | null,
   },
 
-  // Site metadata
-  siteUrl: 'https://zaddywebbuilds.github.io/EstatePros-Carpet-Cleaning',
-  basePath: '/EstatePros-Carpet-Cleaning',
+  siteUrl: 'https://zaddywebbuilds.github.io/Jose-Cardoso-Cleaning-Service',
+  basePath: '/Jose-Cardoso-Cleaning-Service',
 }
+
+export const BASE = business.basePath
 
 export type Service = typeof business.services[number]

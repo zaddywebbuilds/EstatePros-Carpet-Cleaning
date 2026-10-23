@@ -1,28 +1,29 @@
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
-import { MessageSquare, CheckCircle, CalendarCheck, ArrowRight } from 'lucide-react'
+import { MessageSquare, CheckCircle, CalendarCheck, ArrowRight, Phone } from 'lucide-react'
+import { business } from '../config/business'
 
 const steps = [
   {
     num: '01',
     icon: MessageSquare,
     title: 'Tell us about the space',
-    desc: 'Share a few details about your carpets, property type, and what concerns you. No commitment, just a conversation.',
+    desc: 'Share a few details about the rooms, the floors and what concerns you. No commitment, just a conversation.',
     note: null,
   },
   {
     num: '02',
     icon: CheckCircle,
-    title: 'Get details confirmed',
-    desc: "We'll review your enquiry, ask any follow-up questions, and clarify what the service would involve for your specific situation.",
+    title: 'Get the details confirmed',
+    desc: 'We review the enquiry, ask any follow-up questions, and set out exactly what the work would involve for your place.',
     note: null,
   },
   {
     num: '03',
     icon: CalendarCheck,
-    title: 'Schedule your service',
-    desc: "Once you're happy to proceed, we'll coordinate a time that works for you and prepare for the job.",
-    note: 'Enquiry only, not a confirmed booking slot',
+    title: 'Book your visit',
+    desc: 'Once you are happy to go ahead we agree a weekday that works and plan the job around your access.',
+    note: 'An enquiry is not yet a confirmed booking slot',
   },
 ]
 
@@ -30,79 +31,79 @@ export default function BookingJourney() {
   const shouldReduce = useReducedMotion()
 
   return (
-    <section className="py-10 px-4 sm:px-6 lg:px-8" aria-labelledby="journey-heading">
-      <div className="panel-deep max-w-7xl mx-auto px-6 sm:px-12 py-20 overflow-hidden">
-        <div className="text-center mb-10">
-          <p className="font-ui text-xs font-600 tracking-[0.18em] uppercase text-ivory/50 mb-4">
-            How It Works
-          </p>
+    <section className="px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="journey-heading">
+      <div className="panel-deep mx-auto max-w-7xl px-6 py-20 sm:px-12">
+        <div className="mb-14 text-center">
+          <p className="section-eyebrow section-eyebrow-center mb-5 !text-brass">How It Works</p>
           <h2
             id="journey-heading"
-            className="font-heading font-600 text-ivory leading-tight"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.01em' }}
+            className="font-heading leading-[1.08] text-linen"
+            style={{ fontSize: 'clamp(2rem, 4.2vw, 3.2rem)', fontWeight: 400, letterSpacing: '-0.025em' }}
           >
-            From enquiry to<br />
-            <em className="font-serif" style={{ fontStyle: 'italic', fontWeight: 400, color: '#DCECE9' }}>
-              exceptional clean
-            </em>
+            From first message to
+            <br />
+            <span className="accent-italic">a finished room</span>
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 relative">
-          {/* Connector line (desktop) */}
+        <ol className="relative grid gap-6 md:grid-cols-3" role="list">
+          {/* Hairline joining the three cards on desktop */}
           <div
-            className="hidden md:block absolute top-10 left-1/6 right-1/6 h-px bg-ivory/10"
+            className="absolute left-[16%] right-[16%] top-14 hidden h-px bg-gradient-to-r from-transparent via-brass/35 to-transparent md:block"
             aria-hidden="true"
           />
 
           {steps.map(({ num, icon: Icon, title, desc, note }, i) => (
-            <motion.div
+            <motion.li
               key={num}
               className="relative"
               initial={shouldReduce ? {} : { opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '240px' }}
-              transition={{ duration: 0.6, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, margin: '140px' }}
+              transition={{ duration: 0.6, delay: i * 0.14, ease: [0.22, 1, 0.36, 1] }}
             >
-              {/* Floating card */}
-              <div className="bg-teal-light/60 backdrop-blur-sm border border-ivory/10 rounded-2xl p-7 h-full hover:border-ivory/20 transition-colors duration-300">
-                <div className="flex items-start justify-between mb-6">
-                  <div className="w-12 h-12 bg-ivory/10 rounded-xl flex items-center justify-center">
-                    <Icon size={20} className="text-ivory/80" strokeWidth={1.75} />
-                  </div>
+              <div className="h-full rounded-4xl border border-linen/10 bg-forest-light/50 p-7 backdrop-blur-sm transition-colors duration-300 hover:border-brass/35">
+                <div className="mb-7 flex items-start justify-between">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brass/15 text-brass">
+                    <Icon size={20} strokeWidth={1.75} />
+                  </span>
                   <span
-                    className="font-heading font-600 text-ivory/20"
-                    style={{ fontSize: '2.5rem', lineHeight: 1, letterSpacing: '-0.01em' }}
+                    className="font-heading text-linen/15"
+                    style={{ fontSize: '2.6rem', lineHeight: 1, fontWeight: 400 }}
                     aria-hidden="true"
                   >
                     {num}
                   </span>
                 </div>
-                <h3 className="font-heading font-600 text-ivory text-lg mb-3 leading-snug">{title}</h3>
-                <p className="font-ui text-ivory/65 text-sm leading-relaxed">{desc}</p>
+                <h3 className="mb-3 font-heading text-[1.22rem] leading-snug text-linen" style={{ fontWeight: 500 }}>
+                  {title}
+                </h3>
+                <p className="font-ui text-[0.86rem] leading-relaxed text-linen/65">{desc}</p>
                 {note && (
-                  <p className="mt-4 text-xs font-ui text-ivory/40 italic">&mdash; {note}</p>
+                  <p className="mt-5 border-t border-linen/10 pt-4 font-ui text-xs italic text-linen/40">
+                    {note}
+                  </p>
                 )}
               </div>
-            </motion.div>
+            </motion.li>
           ))}
-        </div>
+        </ol>
 
         <motion.div
-          className="text-center mt-12"
+          className="mt-14 flex flex-wrap items-center justify-center gap-3"
           initial={shouldReduce ? {} : { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.35 }}
         >
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2.5 px-8 py-4 bg-champagne text-ink font-heading font-600 text-sm rounded-full hover:bg-champagne-dark transition-colors"
-            style={{ letterSpacing: '0.03em' }}
-          >
+          <Link to="/contact" className="btn-brass">
             Start your enquiry
             <ArrowRight size={15} strokeWidth={2.5} />
           </Link>
+          <a href={`tel:${business.phone}`} className="btn-outline-light">
+            <Phone size={14} strokeWidth={2.5} />
+            {business.phoneDisplay}
+          </a>
         </motion.div>
       </div>
     </section>

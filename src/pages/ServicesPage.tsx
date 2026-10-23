@@ -2,16 +2,14 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Lock } from 'lucide-react'
-import { business } from '../config/business'
+import { business, BASE } from '../config/business'
 import ProcessTimeline from '../components/ProcessTimeline'
-
-const BASE = '/EstatePros-Carpet-Cleaning'
 
 export default function ServicesPage() {
   const shouldReduce = useReducedMotion()
 
   useEffect(() => {
-    document.title = 'Services | EstatePros Carpet Cleaning Calgary'
+    document.title = 'Services | Jose Cardoso Cleaning Service'
   }, [])
 
   const reveal = (delay = 0) =>
@@ -32,7 +30,7 @@ export default function ServicesPage() {
           <div className="grid lg:grid-cols-[1.1fr_1fr] items-stretch">
             <div className="px-6 sm:px-12 py-14 lg:py-20">
               <motion.p
-                className="font-ui text-xs font-600 tracking-[0.2em] uppercase text-champagne mb-4"
+                className="section-eyebrow !text-brass mb-5"
                 initial={shouldReduce ? {} : { opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -40,25 +38,25 @@ export default function ServicesPage() {
                 What We Do
               </motion.p>
               <motion.h1
-                className="font-heading text-ivory leading-[1.08]"
-                style={{ fontWeight: 500, fontSize: 'clamp(2.5rem, 5vw, 4rem)', letterSpacing: '-0.01em' }}
+                className="font-heading text-linen leading-[1.08]"
+                style={{ fontWeight: 400, fontSize: 'clamp(2.4rem, 5.2vw, 4.1rem)', letterSpacing: '-0.03em' }}
                 initial={shouldReduce ? {} : { opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.08 }}
               >
                 Services built around
                 <br />
-                <span style={{ fontStyle: 'italic', color: '#DCECE9' }}>your space</span>
+                <span className="accent-italic">your space</span>
               </motion.h1>
               <motion.p
-                className="mt-6 font-ui text-ivory/70 max-w-md leading-relaxed"
+                className="mt-6 font-ui text-linen/70 max-w-md leading-relaxed"
                 style={{ fontSize: 'clamp(0.9rem, 1.5vw, 1rem)' }}
                 initial={shouldReduce ? {} : { opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.16 }}
               >
-                Enquire about any of the work below. We&rsquo;ll confirm what&rsquo;s available for your
-                specific space and situation before anything is booked.
+                Enquire about any of the work below. We confirm what is right for your
+                particular space and situation before anything is booked in.
               </motion.p>
             </div>
 
@@ -75,7 +73,7 @@ export default function ServicesPage() {
                 className="absolute inset-0"
                 style={{
                   background:
-                    'linear-gradient(to right, rgba(16,44,51,0.95) 0%, rgba(16,44,51,0.35) 45%, rgba(16,44,51,0) 100%)',
+                    'linear-gradient(to right, rgba(14,42,35,0.96) 0%, rgba(14,42,35,0.45) 48%, rgba(14,42,35,0.05) 100%)',
                 }}
               />
             </div>
@@ -123,8 +121,8 @@ export default function ServicesPage() {
 
                   <div className="flex flex-col justify-center px-7 py-9 sm:px-10">
                     <h2
-                      className="font-heading text-teal"
-                      style={{ fontWeight: 600, fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
+                      className="font-heading text-forest"
+                      style={{ fontWeight: 500, fontSize: 'clamp(1.7rem, 3vw, 2.4rem)', letterSpacing: '-0.02em' }}
                     >
                       {service.name}
                     </h2>
@@ -137,13 +135,13 @@ export default function ServicesPage() {
                         <>
                           <Link
                             to={`/services/${service.id}`}
-                            className="inline-flex items-center gap-1.5 font-ui text-sm font-600 text-teal transition-colors hover:text-champagne-dark"
+                            className="inline-flex items-center gap-1.5 font-ui text-sm font-600 text-forest transition-colors hover:text-brass-dark"
                           >
                             Learn more <ArrowRight size={13} strokeWidth={2.5} />
                           </Link>
                           <Link
                             to="/contact"
-                            className="font-ui text-sm font-600 text-champagne-dark transition-colors hover:text-teal"
+                            className="font-ui text-sm font-600 text-brass-dark transition-colors hover:text-forest"
                           >
                             Enquire
                           </Link>
@@ -151,7 +149,7 @@ export default function ServicesPage() {
                       ) : (
                         <Link
                           to="/contact"
-                          className="inline-flex items-center gap-1.5 font-ui text-sm font-600 text-champagne-dark transition-colors hover:text-teal"
+                          className="inline-flex items-center gap-1.5 font-ui text-sm font-600 text-brass-dark transition-colors hover:text-forest"
                         >
                           Ask about this service <ArrowRight size={13} strokeWidth={2.5} />
                         </Link>
@@ -173,14 +171,13 @@ export default function ServicesPage() {
         <div className="surface max-w-7xl mx-auto flex flex-col gap-5 px-7 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-10">
           <div>
             <p className="section-eyebrow mb-2">See The Difference</p>
-            <p className="font-heading text-teal text-2xl" style={{ fontWeight: 600 }}>
+            <p className="font-heading text-forest text-2xl" style={{ fontWeight: 500 }}>
               Drag through a before and after
             </p>
           </div>
           <Link
             to="/gallery"
-            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-teal px-7 py-3.5 font-sans text-sm text-ivory transition-all duration-300 hover:shadow-surface"
-            style={{ fontWeight: 600, letterSpacing: '0.02em' }}
+            className="btn-primary shrink-0"
           >
             View comparisons <ArrowRight size={14} strokeWidth={2.5} />
           </Link>
@@ -191,23 +188,22 @@ export default function ServicesPage() {
       <section className="px-4 sm:px-6 lg:px-8 py-8">
         <div className="panel-deep max-w-7xl mx-auto px-6 sm:px-12 py-16 text-center">
           <motion.h2
-            className="font-heading text-ivory leading-[1.1]"
+            className="font-heading text-linen leading-[1.1]"
             style={{ fontWeight: 500, fontSize: 'clamp(1.9rem, 4vw, 3rem)' }}
             {...reveal(0)}
           >
             Not sure what you need?
           </motion.h2>
           <motion.p
-            className="mx-auto mt-5 max-w-md font-ui text-sm leading-relaxed text-ivory/70"
+            className="mx-auto mt-5 max-w-md font-ui text-sm leading-relaxed text-linen/70"
             {...reveal(0.08)}
           >
-            Describe your space and we&rsquo;ll help you work out the right approach.
+            Describe the space and we will help you work out the right approach. Weekdays, 8am to 5pm.
           </motion.p>
           <motion.div className="mt-8" {...reveal(0.16)}>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-champagne px-8 py-4 font-sans text-sm text-ink transition-all duration-300 hover:bg-champagne-dark"
-              style={{ fontWeight: 600, letterSpacing: '0.02em' }}
+              className="btn-brass"
             >
               Send an enquiry <ArrowRight size={14} strokeWidth={2.5} />
             </Link>

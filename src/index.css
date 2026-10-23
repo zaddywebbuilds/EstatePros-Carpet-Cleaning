@@ -4,15 +4,17 @@
 
 @layer base {
   :root {
-    --teal: #102C33;
-    --ink: #1B2A2E;
-    --ivory: #F7F5F0;
-    --sand: #F2EDE4;
-    --sand-deep: #E8DFD1;
-    --mist: #DCECE9;
-    --champagne: #B5A185;
-    --white: #FFFFFF;
-    --stone: #55615F;
+    --forest: #0E2A23;
+    --forest-light: #174136;
+    --forest-deep: #07190F;
+    --brass: #BE9B5E;
+    --brass-dark: #9A7A42;
+    --ink: #14201C;
+    --linen: #FAF7F1;
+    --bone: #F1EADC;
+    --bone-deep: #E3D8C4;
+    --sage: #D8E7DF;
+    --stone: #5B6A64;
     --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
   }
 
@@ -25,8 +27,34 @@
   body {
     @apply font-ui text-ink;
     min-height: 100svh;
-    background: linear-gradient(170deg, #FAF6EF 0%, #F2EDE4 45%, #E9E2D6 100%);
-    background-attachment: fixed;
+    background-color: var(--linen);
+  }
+
+  /* Two soft washes sit behind everything and never scroll away, so long
+     pages keep the same light rather than flattening out halfway down. */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 70% 55% at 12% -5%, rgba(216, 231, 223, 0.75) 0%, rgba(250, 247, 241, 0) 62%),
+      radial-gradient(ellipse 60% 50% at 95% 12%, rgba(190, 155, 94, 0.16) 0%, rgba(250, 247, 241, 0) 60%),
+      linear-gradient(168deg, #FBF9F4 0%, #F4EFE5 52%, #EDE5D7 100%);
+  }
+
+  /* Film grain. Keeps the large flat fields from banding and gives the
+     cream surfaces a paper quality on big screens. */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.22'/%3E%3C/svg%3E");
   }
 
   *,
@@ -38,96 +66,173 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
     font-weight: 500;
-    letter-spacing: -0.005em;
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    letter-spacing: -0.015em;
   }
 
   ::selection {
-    background-color: rgba(16, 44, 51, 0.15);
+    background-color: rgba(190, 155, 94, 0.3);
     color: var(--ink);
   }
 
   :focus-visible {
-    outline: 2px solid var(--champagne);
+    outline: 2px solid var(--brass-dark);
     outline-offset: 3px;
-    border-radius: 3px;
+    border-radius: 4px;
   }
 }
 
 @layer components {
+  /* ---- Buttons ---------------------------------------------------- */
+
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-teal text-ivory font-sans font-600 text-sm rounded-full transition-all duration-300;
-    letter-spacing: 0.02em;
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-forest px-8 py-3.5 font-sans text-sm text-linen transition-all duration-300;
+    font-weight: 600;
+    letter-spacing: 0.015em;
+  }
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 40%;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+    transform: translateX(-120%);
+    pointer-events: none;
   }
   .btn-primary:hover {
-    @apply shadow-surface;
-    background-color: #17434d;
-    transform: translateY(-1px);
+    @apply bg-forest-light shadow-lift;
+    transform: translateY(-2px);
   }
-  .btn-primary:focus-visible {
-    outline: 2px solid var(--champagne);
-    outline-offset: 3px;
+  .btn-primary:hover::after {
+    animation: shimmer 0.9s var(--ease-smooth);
+  }
+
+  .btn-brass {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brass px-8 py-3.5 font-sans text-sm text-forest-deep transition-all duration-300;
+    font-weight: 600;
+    letter-spacing: 0.015em;
+  }
+  .btn-brass:hover {
+    @apply bg-brass-light shadow-brass;
+    transform: translateY(-2px);
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/70 text-ink font-sans font-600 text-sm rounded-full border border-white/80 backdrop-blur-sm transition-all duration-300;
-    letter-spacing: 0.02em;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-forest/15 bg-white/70 px-8 py-3.5 font-sans text-sm text-forest backdrop-blur-sm transition-all duration-300;
+    font-weight: 600;
+    letter-spacing: 0.015em;
   }
   .btn-ghost:hover {
-    @apply bg-white shadow-surface;
-    transform: translateY(-1px);
+    @apply border-forest/25 bg-white shadow-surface;
+    transform: translateY(-2px);
   }
 
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-linen/30 px-8 py-3.5 font-sans text-sm text-linen transition-all duration-300;
+    font-weight: 600;
+    letter-spacing: 0.015em;
+  }
+  .btn-outline-light:hover {
+    @apply border-linen/60 bg-linen/10;
+  }
+
+  .link-arrow {
+    @apply inline-flex items-center gap-1.5 font-sans text-sm text-brass-dark transition-all duration-300;
+    font-weight: 600;
+  }
+  .link-arrow:hover {
+    @apply gap-2.5 text-forest;
+  }
+
+  /* ---- Type ------------------------------------------------------- */
+
   .section-eyebrow {
-    @apply font-ui text-xs font-600 uppercase text-champagne-dark;
-    letter-spacing: 0.2em;
+    @apply inline-flex items-center gap-2.5 font-sans text-[0.68rem] uppercase text-brass-dark;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+  }
+  /* Short brass rule that reads as part of the label */
+  .section-eyebrow::before {
+    content: '';
+    width: 26px;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.55;
+  }
+  .section-eyebrow-center::before {
+    display: none;
   }
 
   .section-heading {
-    @apply font-heading text-ink leading-[1.1];
+    @apply font-heading leading-[1.08] text-forest;
     font-weight: 500;
-    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
-    letter-spacing: -0.01em;
+    font-size: clamp(2.1rem, 4.4vw, 3.4rem);
   }
 
-  .editorial-heading {
-    @apply font-heading text-ink leading-[1.05];
-    font-weight: 500;
-    font-size: clamp(3rem, 7vw, 5.5rem);
-    letter-spacing: -0.015em;
+  .display-heading {
+    @apply font-heading leading-[1.02] text-forest;
+    font-weight: 400;
+    font-size: clamp(2.8rem, 7vw, 5.6rem);
+    letter-spacing: -0.03em;
+  }
+
+  .accent-italic {
+    @apply font-heading text-brass;
+    font-style: italic;
+    font-weight: 400;
   }
 
   .body-copy {
-    @apply font-ui text-stone leading-relaxed;
-    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    @apply font-ui leading-[1.75] text-stone;
+    font-size: clamp(0.94rem, 1.4vw, 1.0625rem);
   }
 
-  /* Elevated translucent surface - the core building block */
+  /* ---- Surfaces --------------------------------------------------- */
+
   .surface {
-    @apply bg-white/65 backdrop-blur-xl rounded-4xl shadow-surface border border-white/70;
+    @apply rounded-4xl border border-white/80 bg-white/70 shadow-surface backdrop-blur-xl;
   }
 
   .surface-solid {
-    @apply bg-white rounded-4xl shadow-surface border border-white;
+    @apply overflow-hidden rounded-4xl border border-bone-deep/50 bg-white shadow-surface;
   }
 
-  /* Deep teal feature panel with warm glow */
   .panel-deep {
-    @apply bg-teal rounded-5xl shadow-panel;
+    @apply relative overflow-hidden rounded-5xl bg-forest shadow-panel;
+  }
+  /* Brass bloom so the dark panels have a light source instead of reading flat */
+  .panel-deep::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 60% 70% at 85% 8%, rgba(190, 155, 94, 0.20) 0%, rgba(14, 42, 35, 0) 68%),
+      radial-gradient(ellipse 55% 60% at 5% 100%, rgba(31, 83, 69, 0.55) 0%, rgba(14, 42, 35, 0) 70%);
+  }
+  .panel-deep > * {
+    position: relative;
+    z-index: 1;
   }
 
   .float-card {
-    @apply bg-white/80 backdrop-blur-xl rounded-3xl shadow-surface border border-white/70;
+    @apply rounded-3xl border border-white/80 bg-white/85 shadow-lift backdrop-blur-xl;
   }
 
   .service-card {
-    @apply bg-white/65 backdrop-blur-xl rounded-4xl overflow-hidden shadow-surface border border-white/70 transition-all duration-500;
+    @apply relative overflow-hidden rounded-4xl border border-white/80 bg-white/70 shadow-surface backdrop-blur-xl transition-all duration-500;
   }
   .service-card:hover {
-    @apply shadow-surface-lg bg-white/85;
-    transform: translateY(-4px);
+    @apply bg-white shadow-surface-lg;
+    transform: translateY(-6px);
   }
 
-  /* Transparent range that drives the before/after reveal */
+  .hairline {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-forest/12 to-transparent;
+  }
+
+  /* ---- Before / after slider -------------------------------------- */
+
   .ba-range {
     -webkit-appearance: none;
     appearance: none;
@@ -149,37 +254,42 @@
   }
   /* The input is invisible, so focus has to be shown on the frame it covers */
   .ba-range:focus-visible {
-    outline: 3px solid var(--champagne);
+    outline: 3px solid var(--brass);
     outline-offset: -3px;
   }
 
   .skip-link {
-    @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-champagne focus:text-ink focus:rounded-md focus:font-600;
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-brass focus:px-5 focus:py-2.5 focus:text-forest-deep;
   }
 }
 
 @layer utilities {
-  .font-700 { font-weight: 700; }
-  .font-600 { font-weight: 600; }
-  .font-800 { font-weight: 800; }
   .font-400 { font-weight: 400; }
+  .font-500 { font-weight: 500; }
+  .font-600 { font-weight: 600; }
+  .font-700 { font-weight: 700; }
 
   .text-balance { text-wrap: balance; }
-
-  .perspective-1000 { perspective: 1000px; }
+  .text-pretty { text-wrap: pretty; }
 
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
   .scrollbar-hide::-webkit-scrollbar { display: none; }
+
+  /* Fades a horizontally scrolling strip out at both ends */
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+  }
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  html { scroll-behavior: auto; }
 }

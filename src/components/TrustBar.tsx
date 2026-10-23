@@ -1,42 +1,52 @@
-import { motion } from 'framer-motion'
-import { useReducedMotion } from 'framer-motion'
-import { MessageSquare, Home, MapPin, Leaf } from 'lucide-react'
+import { motion, useReducedMotion } from 'framer-motion'
+import { Clock, Home, Building2, MapPin } from 'lucide-react'
 
 const items = [
-  { icon: MessageSquare, label: 'Easy quote requests', desc: 'Simple enquiry, quick response' },
-  { icon: Home, label: 'Made for lived-in spaces', desc: 'Care that works around your life' },
-  { icon: Leaf, label: 'Residential enquiries welcome', desc: 'Homes and suites across Calgary' },
-  { icon: MapPin, label: 'Calgary-based service', desc: 'Local, attentive, community-focused' },
+  {
+    icon: Clock,
+    label: 'Weekdays, 8 to 5',
+    desc: 'Monday through Friday, with the day planned around your access.',
+  },
+  {
+    icon: Home,
+    label: 'Lived-in homes',
+    desc: 'Work that fits around pets, kids and furniture that has to stay put.',
+  },
+  {
+    icon: Building2,
+    label: 'Offices & suites',
+    desc: 'Common areas and workspaces cleaned on a schedule that suits the floor.',
+  },
+  {
+    icon: MapPin,
+    label: 'Based on Caledonia Rd',
+    desc: 'A local crew working out of North York, not a dispatch centre.',
+  },
 ]
 
 export default function TrustBar() {
   const shouldReduce = useReducedMotion()
 
   return (
-    <section className="py-10 px-4 sm:px-6 lg:px-8" aria-label="Key service highlights">
-      <div className="max-w-7xl mx-auto">
-        <ul
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
-          role="list"
-        >
+    <section className="px-4 py-12 sm:px-6 lg:px-8" aria-label="What to expect">
+      <div className="mx-auto max-w-7xl">
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4" role="list">
           {items.map(({ icon: Icon, label, desc }, i) => (
             <motion.li
               key={label}
-              className="surface flex items-start gap-4 px-6 py-6"
-              initial={shouldReduce ? {} : { opacity: 0, y: 16 }}
+              className="group surface px-6 py-7 transition-all duration-500 hover:-translate-y-1 hover:bg-white hover:shadow-surface-lg"
+              initial={shouldReduce ? {} : { opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '240px' }}
-              transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, margin: '160px' }}
+              transition={{ duration: 0.55, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="w-11 h-11 bg-mist rounded-2xl flex items-center justify-center shrink-0">
-                <Icon size={18} className="text-teal" strokeWidth={1.75} />
-              </div>
-              <div>
-                <p className="font-heading text-teal text-lg leading-snug" style={{ fontWeight: 600 }}>
-                  {label}
-                </p>
-                <p className="font-ui text-stone text-xs mt-1 leading-snug">{desc}</p>
-              </div>
+              <span className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-sage text-forest transition-colors duration-500 group-hover:bg-forest group-hover:text-brass">
+                <Icon size={18} strokeWidth={1.75} />
+              </span>
+              <p className="font-heading text-lg leading-snug text-forest" style={{ fontWeight: 600 }}>
+                {label}
+              </p>
+              <p className="mt-2 font-ui text-[0.82rem] leading-relaxed text-stone">{desc}</p>
             </motion.li>
           ))}
         </ul>

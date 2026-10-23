@@ -1,38 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://zaddywebbuilds.github.io/EstatePros-Carpet-Cleaning/</loc>
+    <loc>https://zaddywebbuilds.github.io/Jose-Cardoso-Cleaning-Service/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://zaddywebbuilds.github.io/EstatePros-Carpet-Cleaning/services</loc>
+    <loc>https://zaddywebbuilds.github.io/Jose-Cardoso-Cleaning-Service/services</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://zaddywebbuilds.github.io/EstatePros-Carpet-Cleaning/services/carpet-cleaning</loc>
+    <loc>https://zaddywebbuilds.github.io/Jose-Cardoso-Cleaning-Service/services/carpet-cleaning</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zaddywebbuilds.github.io/EstatePros-Carpet-Cleaning/about</loc>
+    <loc>https://zaddywebbuilds.github.io/Jose-Cardoso-Cleaning-Service/services/upholstery-cleaning</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/Jose-Cardoso-Cleaning-Service/services/area-rug-cleaning</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/Jose-Cardoso-Cleaning-Service/services/stain-odour-treatment</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/Jose-Cardoso-Cleaning-Service/services/commercial-cleaning</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/Jose-Cardoso-Cleaning-Service/services/tile-grout-cleaning</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/Jose-Cardoso-Cleaning-Service/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://zaddywebbuilds.github.io/EstatePros-Carpet-Cleaning/gallery</loc>
+    <loc>https://zaddywebbuilds.github.io/Jose-Cardoso-Cleaning-Service/gallery</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://zaddywebbuilds.github.io/EstatePros-Carpet-Cleaning/reviews</loc>
+    <loc>https://zaddywebbuilds.github.io/Jose-Cardoso-Cleaning-Service/reviews</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://zaddywebbuilds.github.io/EstatePros-Carpet-Cleaning/contact</loc>
+    <loc>https://zaddywebbuilds.github.io/Jose-Cardoso-Cleaning-Service/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zaddywebbuilds.github.io/Jose-Cardoso-Cleaning-Service/privacy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
   </url>
 </urlset>

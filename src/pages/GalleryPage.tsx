@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { business } from '../config/business'
 import BeforeAfterSlider from '../components/BeforeAfterSlider'
+import PageHero from '../components/PageHero'
 
 export default function GalleryPage() {
   const shouldReduce = useReducedMotion()
 
   useEffect(() => {
-    document.title = 'Before & After | EstatePros Carpet Cleaning Calgary'
+    document.title = `Before & After | ${business.name}`
   }, [])
 
   const reveal = (delay = 0) =>
@@ -24,37 +25,11 @@ export default function GalleryPage() {
 
   return (
     <>
-      {/* Header */}
-      <section className="panel-deep relative overflow-hidden mx-4 sm:mx-6 lg:mx-8 mt-4 mb-8 py-16 px-6 sm:px-12">
-        <div className="max-w-7xl mx-auto">
-          <motion.p
-            className="font-ui text-xs font-600 tracking-[0.2em] uppercase text-champagne mb-4"
-            initial={shouldReduce ? {} : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            A Closer Look
-          </motion.p>
-          <motion.h1
-            className="font-heading text-ivory leading-[1.08]"
-            style={{ fontWeight: 500, fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', letterSpacing: '-0.01em' }}
-            initial={shouldReduce ? {} : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.08 }}
-          >
-            Before and after
-          </motion.h1>
-          <motion.p
-            className="mt-4 font-ui text-ivory/65 max-w-lg leading-relaxed text-sm"
-            initial={shouldReduce ? {} : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.16 }}
-          >
-            Drag the handle, or focus it and use the arrow keys, to move between the before and
-            after state of each scene.
-          </motion.p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="A closer look"
+        title={<>Before and <span className="accent-italic">after</span></>}
+        intro="Drag the handle, or focus it and use the arrow keys, to move between the before and after state of each scene."
+      />
 
       {/* Disclosure, then the sliders */}
       <section className="px-4 sm:px-6 lg:px-8 py-4" aria-labelledby="comparisons-heading">
@@ -64,13 +39,13 @@ export default function GalleryPage() {
           </h2>
 
           <div
-            className="rounded-4xl border border-champagne/35 bg-champagne/10 px-6 py-4"
+            className="rounded-4xl border border-brass/35 bg-brass/10 px-6 py-4"
             role="note"
           >
             <p className="font-ui text-xs leading-relaxed text-ink/80">
               <strong className="font-600">About these images:</strong> the comparisons below are
               illustrative visualizations created to show the kind of change cleaning can make. They
-              are not photographs of completed EstatePros jobs, and they are not customer results.
+              are not photographs of completed Jose Cardoso Cleaning Service jobs, and they are not customer results.
               They will be replaced with real matched pairs once project photography is available.
             </p>
           </div>
@@ -96,18 +71,14 @@ export default function GalleryPage() {
       <section className="px-4 sm:px-6 lg:px-8 py-8">
         <div className="panel-deep max-w-7xl mx-auto px-6 sm:px-12 py-16 text-center">
           <motion.h2
-            className="font-heading text-ivory leading-[1.1]"
-            style={{ fontWeight: 500, fontSize: 'clamp(1.9rem, 4vw, 3rem)' }}
+            className="font-heading text-linen leading-[1.1]"
+            style={{ fontWeight: 400, fontSize: 'clamp(1.9rem, 4vw, 3rem)', letterSpacing: '-0.025em' }}
             {...reveal(0)}
           >
             Interested in what we can do for your space?
           </motion.h2>
           <motion.div className="mt-8" {...reveal(0.1)}>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-champagne px-8 py-4 font-sans text-sm text-ink transition-all duration-300 hover:bg-champagne-dark"
-              style={{ fontWeight: 600, letterSpacing: '0.02em' }}
-            >
+            <Link to="/contact" className="btn-brass">
               Get in touch <ArrowRight size={14} strokeWidth={2.5} />
             </Link>
           </motion.div>

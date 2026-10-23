@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import { Send, CheckCircle, AlertCircle, Info } from 'lucide-react'
 import { business } from '../config/business'
@@ -113,13 +114,13 @@ export default function QuoteForm() {
   }
 
   const inputClass = (field: keyof FormData) =>
-    `w-full px-4 py-3 rounded-xl border font-ui text-sm text-ink bg-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-teal/30 ${
+    `w-full rounded-2xl border bg-white px-4 py-3 font-ui text-sm text-ink transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brass/40 ${
       errors[field]
         ? 'border-red-400 bg-red-50/30'
-        : 'border-mist focus:border-teal/50'
+        : 'border-bone-deep focus:border-forest/40'
     }`
 
-  const labelClass = 'block font-heading font-600 text-teal text-sm mb-1.5'
+  const labelClass = 'mb-1.5 block font-ui text-[0.78rem] font-600 text-forest'
 
   if (status === 'success') {
     return (
@@ -129,23 +130,23 @@ export default function QuoteForm() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4 }}
       >
-        <div className="w-16 h-16 bg-mist rounded-full flex items-center justify-center mx-auto mb-5">
-          <CheckCircle size={28} className="text-teal" />
+        <div className="w-16 h-16 bg-sage rounded-full flex items-center justify-center mx-auto mb-5">
+          <CheckCircle size={28} className="text-forest" />
         </div>
-        <h3 className="font-heading font-600 text-teal text-xl mb-3">Enquiry received</h3>
+        <h3 className="mb-3 font-heading text-2xl text-forest" style={{ fontWeight: 500 }}>Enquiry received</h3>
         {DEMO_MODE ? (
           <p className="font-ui text-stone text-sm leading-relaxed max-w-sm mx-auto">
             <strong>Demo mode:</strong> In production, this would be sent to the business. Configure{' '}
-            <code className="text-xs bg-mist px-1 py-0.5 rounded">business.formEndpoint</code> in{' '}
-            <code className="text-xs bg-mist px-1 py-0.5 rounded">src/config/business.ts</code>.
+            <code className="text-xs bg-sage px-1 py-0.5 rounded">business.formEndpoint</code> in{' '}
+            <code className="text-xs bg-sage px-1 py-0.5 rounded">src/config/business.ts</code>.
           </p>
         ) : (
           <p className="font-ui text-stone text-sm leading-relaxed max-w-sm mx-auto">
-            Thank you for reaching out. We&rsquo;ll be in touch shortly to discuss your space.
+            Thank you for reaching out. We will be in touch on the next working day to discuss your space.
           </p>
         )}
         <button
-          className="mt-8 text-sm font-heading font-600 text-champagne hover:text-champagne-dark transition-colors"
+          className="link-arrow mt-8"
           onClick={() => setStatus('idle')}
         >
           Send another enquiry
@@ -163,9 +164,9 @@ export default function QuoteForm() {
     >
       {/* Demo mode banner */}
       {DEMO_MODE && (
-        <div className="mb-6 flex items-start gap-3 p-4 bg-champagne/10 border border-champagne/30 rounded-xl">
-          <Info size={16} className="text-champagne shrink-0 mt-0.5" />
-          <p className="font-ui text-xs text-teal leading-relaxed">
+        <div className="mb-6 flex items-start gap-3 p-4 bg-brass/10 border border-brass/30 rounded-xl">
+          <Info size={16} className="text-brass shrink-0 mt-0.5" />
+          <p className="font-ui text-xs text-forest leading-relaxed">
             <strong>Demo mode:</strong> Form submissions are not being delivered. Set{' '}
             <code className="bg-white/60 px-1 rounded">formEndpoint</code> in{' '}
             <code className="bg-white/60 px-1 rounded">src/config/business.ts</code> to enable.
@@ -235,7 +236,7 @@ export default function QuoteForm() {
             className={inputClass('phone')}
             aria-invalid={!!errors.phone}
             aria-describedby={errors.phone ? 'err-phone' : undefined}
-            placeholder="(403) 555-0100"
+            placeholder="(416) 555-0100"
           />
           {errors.phone && (
             <p id="err-phone" role="alert" className="mt-1.5 text-xs text-red-500 font-ui">{errors.phone}</p>
@@ -320,7 +321,7 @@ export default function QuoteForm() {
         {/* Neighbourhood */}
         <div>
           <label htmlFor="neighbourhood" className={labelClass}>
-            Calgary neighbourhood
+            Neighbourhood
             <span className="text-stone text-xs font-400"> (optional)</span>
           </label>
           <input
@@ -329,7 +330,7 @@ export default function QuoteForm() {
             value={form.neighbourhood}
             onChange={set('neighbourhood')}
             className={inputClass('neighbourhood')}
-            placeholder="e.g. Beltline, Tuscany, Bridgeland"
+            placeholder="e.g. Downsview, Forest Hill, Yorkdale"
           />
         </div>
       </div>
@@ -362,14 +363,14 @@ export default function QuoteForm() {
             type="checkbox"
             checked={form.consent}
             onChange={set('consent')}
-            className="mt-0.5 w-4 h-4 rounded accent-teal"
+            className="mt-0.5 w-4 h-4 rounded accent-forest"
             aria-invalid={!!errors.consent}
             aria-describedby={errors.consent ? 'err-consent' : undefined}
           />
           <span className="font-ui text-xs text-stone leading-relaxed group-hover:text-ink transition-colors">
-            I understand this is an enquiry, not a confirmed booking. I consent to EstatePros Carpet Cleaning
+            I understand this is an enquiry, not a confirmed booking. I consent to Jose Cardoso Cleaning Service
             using the information I provide to respond to my enquiry. See our{' '}
-            <a href="/privacy" className="underline text-teal hover:text-teal-light transition-colors">Privacy Policy</a>.
+            <Link to="/privacy" className="underline text-forest transition-colors hover:text-brass-dark">Privacy Policy</Link>.
           </span>
         </label>
         {errors.consent && (
@@ -390,12 +391,11 @@ export default function QuoteForm() {
         <button
           type="submit"
           disabled={status === 'submitting'}
-          className="inline-flex items-center gap-2.5 px-8 py-4 bg-teal text-ivory font-heading font-600 text-sm rounded-full hover:bg-teal-light transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-          style={{ letterSpacing: '0.03em' }}
+          className="btn-primary disabled:cursor-not-allowed disabled:opacity-60"
         >
           {status === 'submitting' ? (
             <>
-              <span className="w-4 h-4 border-2 border-ivory/40 border-t-ivory rounded-full animate-spin" />
+              <span className="w-4 h-4 border-2 border-linen/40 border-t-linen rounded-full animate-spin" />
               Sending...
             </>
           ) : (

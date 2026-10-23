@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { business } from './config/business'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -13,9 +14,22 @@ import ContactPage from './pages/ContactPage'
 import PrivacyPage from './pages/PrivacyPage'
 import NotFound from './pages/NotFound'
 
+/**
+ * Router keeps the scroll position between routes, which lands you halfway
+ * down a page you have not seen. Jump to the top on every navigation instead.
+ */
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })
+  }, [pathname])
+  return null
+}
+
 export default function App() {
   return (
     <BrowserRouter basename={business.basePath}>
+      <ScrollToTop />
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <Navbar />
       <main id="main-content">

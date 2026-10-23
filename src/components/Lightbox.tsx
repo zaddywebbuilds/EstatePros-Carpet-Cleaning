@@ -110,13 +110,13 @@ export default function Lightbox({ items, index, onClose, onNavigate }: Props) {
             className="relative z-10 flex max-h-full w-full max-w-5xl flex-col"
           >
             <div className="flex items-center justify-between gap-4 pb-3">
-              <p className="font-ui text-xs tracking-[0.18em] uppercase text-ivory/60">
+              <p className="font-ui text-xs tracking-[0.18em] uppercase text-linen/60">
                 {index! + 1} / {items.length}
               </p>
               <button
                 ref={closeRef}
                 onClick={onClose}
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-ivory transition-colors hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-champagne"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-linen transition-colors hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brass"
                 aria-label="Close image viewer"
               >
                 <X size={18} />
@@ -135,19 +135,19 @@ export default function Lightbox({ items, index, onClose, onNavigate }: Props) {
             <div className="flex items-center justify-between gap-4 pt-3">
               <button
                 onClick={() => onNavigate((index! - 1 + items.length) % items.length)}
-                className="flex items-center gap-1.5 rounded-full bg-white/10 px-4 py-2.5 font-ui text-sm text-ivory transition-colors hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-champagne"
+                className="flex items-center gap-1.5 rounded-full bg-white/10 px-4 py-2.5 font-ui text-sm text-linen transition-colors hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brass"
                 aria-label="Previous image"
               >
                 <ChevronLeft size={16} /> Previous
               </button>
 
               {item.caption && (
-                <p className="hidden sm:block font-ui text-xs text-ivory/70">{item.caption}</p>
+                <p className="hidden sm:block font-ui text-xs text-linen/70">{item.caption}</p>
               )}
 
               <button
                 onClick={() => onNavigate((index! + 1) % items.length)}
-                className="flex items-center gap-1.5 rounded-full bg-white/10 px-4 py-2.5 font-ui text-sm text-ivory transition-colors hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-champagne"
+                className="flex items-center gap-1.5 rounded-full bg-white/10 px-4 py-2.5 font-ui text-sm text-linen transition-colors hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brass"
                 aria-label="Next image"
               >
                 Next <ChevronRight size={16} />
@@ -157,7 +157,7 @@ export default function Lightbox({ items, index, onClose, onNavigate }: Props) {
             {/* The caption carries the concept-photography disclosure, so it
                 has to stay visible at narrow widths too. */}
             {item.caption && (
-              <p className="sm:hidden pt-3 text-center font-ui text-xs text-ivory/70">
+              <p className="sm:hidden pt-3 text-center font-ui text-xs text-linen/70">
                 {item.caption}
               </p>
             )}

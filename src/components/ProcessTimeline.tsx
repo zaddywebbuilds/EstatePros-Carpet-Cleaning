@@ -28,7 +28,7 @@ export default function ProcessTimeline() {
       <div className="max-w-7xl mx-auto">
         <div className="max-w-2xl">
           <p className="section-eyebrow mb-3">How The Work Goes</p>
-          <h2 id="process-heading" className="section-heading text-teal">
+          <h2 id="process-heading" className="section-heading text-forest">
             The cleaning process
           </h2>
         </div>
@@ -56,13 +56,13 @@ export default function ProcessTimeline() {
                   onClick={() => setActive(i)}
                   className={`group rounded-3xl border px-5 py-5 text-left transition-all duration-300 ${
                     selected
-                      ? 'border-teal/20 bg-teal text-ivory shadow-surface'
-                      : 'border-white/70 bg-white/60 text-teal hover:bg-white'
+                      ? 'border-forest/20 bg-forest text-linen shadow-surface'
+                      : 'border-white/70 bg-white/60 text-forest hover:bg-white'
                   }`}
                 >
                   <span
                     className={`font-ui text-xs font-600 tracking-[0.18em] ${
-                      selected ? 'text-champagne' : 'text-stone'
+                      selected ? 'text-brass' : 'text-stone'
                     }`}
                   >
                     {String(i + 1).padStart(2, '0')}
@@ -87,7 +87,7 @@ export default function ProcessTimeline() {
               aria-labelledby={`process-tab-${step.id}`}
               hidden={i !== active}
               tabIndex={0}
-              className="mt-7 rounded-3xl bg-mist/45 px-6 py-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-champagne"
+              className="mt-7 rounded-3xl bg-sage/45 px-6 py-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brass"
             >
               <motion.p
                 key={active}
