@@ -9,7 +9,7 @@ export default function ServiceArea() {
   const shouldReduce = useReducedMotion()
 
   return (
-    <section className="px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="area-heading">
+    <section className="section-y px-4 sm:px-6 lg:px-8" aria-labelledby="area-heading">
       <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
 
         <motion.div
@@ -89,7 +89,7 @@ export default function ServiceArea() {
         </motion.div>
 
         <motion.div
-          className="overflow-hidden rounded-5xl border-[6px] border-white shadow-surface-lg"
+          className="plate rounded-5xl shadow-surface-lg"
           initial={shouldReduce ? {} : { opacity: 0, x: 22 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '140px' }}

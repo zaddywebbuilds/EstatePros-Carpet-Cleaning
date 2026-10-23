@@ -9,7 +9,7 @@ export default function PrivacyPage() {
   const year = new Date().getFullYear()
 
   return (
-    <section className="px-4 py-10 sm:px-6 lg:px-8">
+    <section className="section-y px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-3xl">
         <p className="section-eyebrow mb-5">Legal</p>
         <h1 className="mb-4 font-heading text-4xl leading-tight text-forest" style={{ fontWeight: 400, letterSpacing: '-0.03em' }}>

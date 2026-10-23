@@ -15,7 +15,7 @@ export default function ClosingCTA() {
   })
 
   return (
-    <section className="px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="closing-cta-heading">
+    <section className="section-y px-4 sm:px-6 lg:px-8" aria-labelledby="closing-cta-heading">
       <div className="panel-deep mx-auto max-w-7xl">
         {/* Photograph bleeds in from the right and fades under the type */}
         <div

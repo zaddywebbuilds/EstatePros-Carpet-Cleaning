@@ -32,7 +32,7 @@ export default function GalleryPage() {
       />
 
       {/* Disclosure, then the sliders */}
-      <section className="px-4 sm:px-6 lg:px-8 py-4" aria-labelledby="comparisons-heading">
+      <section className="section-y px-4 sm:px-6 lg:px-8" aria-labelledby="comparisons-heading">
         <div className="max-w-7xl mx-auto">
           <h2 id="comparisons-heading" className="sr-only">
             Before and after comparisons
@@ -68,7 +68,7 @@ export default function GalleryPage() {
       </section>
 
       {/* CTA */}
-      <section className="px-4 sm:px-6 lg:px-8 py-8">
+      <section className="section-y px-4 sm:px-6 lg:px-8">
         <div className="panel-deep max-w-7xl mx-auto px-6 sm:px-12 py-16 text-center">
           <motion.h2
             className="font-heading text-linen leading-[1.1]"

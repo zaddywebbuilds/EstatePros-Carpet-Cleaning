@@ -18,7 +18,7 @@ export default function TestimonialsSection() {
   const reviewWord = business.googleReviewCount === 1 ? 'review' : 'reviews'
 
   return (
-    <section className="px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="reviews-heading">
+    <section className="section-y px-4 sm:px-6 lg:px-8" aria-labelledby="reviews-heading">
       <div className="mx-auto max-w-5xl">
         <motion.div
           className="mb-12 text-center"

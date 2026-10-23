@@ -48,7 +48,7 @@ export default function AboutPage() {
       />
 
       {/* Philosophy */}
-      <section className="px-4 py-16 sm:px-6 lg:px-8">
+      <section className="section-y px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto mb-14 max-w-2xl text-center">
             <motion.p className="section-eyebrow section-eyebrow-center mb-5" {...reveal()}>
@@ -86,7 +86,7 @@ export default function AboutPage() {
       </section>
 
       {/* How we work */}
-      <section className="px-4 py-16 sm:px-6 lg:px-8">
+      <section className="section-y px-4 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <motion.figure
             className="relative"
@@ -95,7 +95,7 @@ export default function AboutPage() {
             viewport={{ once: true, margin: '140px' }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="overflow-hidden rounded-5xl border-[6px] border-white shadow-surface-lg" style={{ aspectRatio: '4 / 3' }}>
+            <div className="plate rounded-5xl shadow-surface-lg" style={{ aspectRatio: '4 / 3' }}>
               <img
                 src={`${BASE}/images/carpet-spot-treatment.webp`}
                 alt="Gloved hand spraying a pre-treatment onto a marked patch of carpet"

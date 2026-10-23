@@ -14,13 +14,15 @@ export default function EditorialAbout() {
   })
 
   return (
-    <section className="px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="about-heading">
+    <section className="section-y px-4 sm:px-6 lg:px-8" aria-labelledby="about-heading">
       <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2 lg:gap-20">
 
-        {/* Two plates, offset, so the column has depth rather than one flat photo */}
-        <div className="relative order-2 lg:order-1">
+        {/* Two plates, offset, so the column has depth rather than one flat
+            photo. The margin keeps the overhanging square clear of the next
+            section now that the gap between sections is tighter. */}
+        <div className="relative order-2 mb-12 sm:mb-14 lg:order-1 lg:mb-10">
           <motion.div
-            className="relative overflow-hidden rounded-5xl border-[6px] border-white bg-bone-deep shadow-surface-lg"
+            className="plate relative rounded-5xl shadow-surface-lg"
             style={{ aspectRatio: '4 / 5' }}
             initial={shouldReduce ? {} : { opacity: 0, scale: 0.96 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -43,7 +45,7 @@ export default function EditorialAbout() {
           </motion.div>
 
           <motion.div
-            className="absolute -bottom-10 -right-4 hidden w-44 overflow-hidden rounded-4xl border-[5px] border-white bg-bone-deep shadow-lift sm:block lg:-right-10 lg:w-56"
+            className="plate absolute -bottom-10 -right-4 hidden w-44 rounded-4xl shadow-lift sm:block lg:-right-10 lg:w-56"
             style={{ aspectRatio: '1 / 1' }}
             initial={shouldReduce ? {} : { opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}

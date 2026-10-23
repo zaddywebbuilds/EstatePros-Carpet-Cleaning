@@ -27,7 +27,7 @@ export default function WorkGallery() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
   return (
-    <section className="px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="gallery-heading">
+    <section className="section-y px-4 sm:px-6 lg:px-8" aria-labelledby="gallery-heading">
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -47,7 +47,7 @@ export default function WorkGallery() {
           {images.map(({ src, alt, caption }, i) => (
             <motion.figure
               key={src}
-              className={`group relative overflow-hidden rounded-4xl border-[6px] border-white bg-white shadow-surface ${
+              className={`plate group relative rounded-4xl !bg-white ${
                 ['sm:col-span-2 lg:col-span-5', 'lg:col-span-4', 'lg:col-span-3'][i] ?? 'lg:col-span-4'
               }`}
               initial={shouldReduce ? {} : { opacity: 0, scale: 0.97 }}

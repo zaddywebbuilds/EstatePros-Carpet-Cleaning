@@ -25,7 +25,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Header - asymmetric, image on one side so it reads differently to the home hero */}
-      <section className="px-4 sm:px-6 lg:px-8 pt-6 pb-8">
+      <section className="section-y px-4 sm:px-6 lg:px-8">
         <div className="panel-deep relative overflow-hidden max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[1.1fr_1fr] items-stretch">
             <div className="px-6 sm:px-12 py-14 lg:py-20">
@@ -82,7 +82,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Editorial service blocks - alternating sides, not a repeated card grid */}
-      <section className="px-4 sm:px-6 lg:px-8 py-4" aria-label="Services offered">
+      <section className="section-y px-4 sm:px-6 lg:px-8" aria-label="Services offered">
         <div className="max-w-7xl mx-auto space-y-6">
           {business.services.map((service, i) => {
             const flipped = i % 2 === 1
@@ -167,7 +167,7 @@ export default function ServicesPage() {
       {business.process.confirmed && <ProcessTimeline />}
 
       {/* Pointer to the comparisons, which live on their own page */}
-      <section className="px-4 sm:px-6 lg:px-8 py-6">
+      <section className="section-y px-4 sm:px-6 lg:px-8">
         <div className="surface max-w-7xl mx-auto flex flex-col gap-5 px-7 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-10">
           <div>
             <p className="section-eyebrow mb-2">See The Difference</p>
@@ -185,7 +185,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Closing CTA */}
-      <section className="px-4 sm:px-6 lg:px-8 py-8">
+      <section className="section-y px-4 sm:px-6 lg:px-8">
         <div className="panel-deep max-w-7xl mx-auto px-6 sm:px-12 py-16 text-center">
           <motion.h2
             className="font-heading text-linen leading-[1.1]"

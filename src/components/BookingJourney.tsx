@@ -31,7 +31,7 @@ export default function BookingJourney() {
   const shouldReduce = useReducedMotion()
 
   return (
-    <section className="px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="journey-heading">
+    <section className="section-y px-4 sm:px-6 lg:px-8" aria-labelledby="journey-heading">
       <div className="panel-deep mx-auto max-w-7xl px-6 py-20 sm:px-12">
         <div className="mb-14 text-center">
           <p className="section-eyebrow section-eyebrow-center mb-5 !text-brass">How It Works</p>

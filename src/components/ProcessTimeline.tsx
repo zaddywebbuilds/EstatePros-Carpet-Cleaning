@@ -24,7 +24,7 @@ export default function ProcessTimeline() {
   }
 
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-10" aria-labelledby="process-heading">
+    <section className="section-y px-4 sm:px-6 lg:px-8" aria-labelledby="process-heading">
       <div className="max-w-7xl mx-auto">
         <div className="max-w-2xl">
           <p className="section-eyebrow mb-3">How The Work Goes</p>

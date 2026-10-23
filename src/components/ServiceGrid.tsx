@@ -8,7 +8,7 @@ export default function ServiceGrid() {
   const services = business.services.filter((s) => s.confirmed)
 
   return (
-    <section className="px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="services-heading">
+    <section className="section-y px-4 sm:px-6 lg:px-8" aria-labelledby="services-heading">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-xl">
@@ -29,7 +29,7 @@ export default function ServiceGrid() {
           {services.map((service, i) => (
             <motion.article
               key={service.id}
-              className={`group relative overflow-hidden rounded-4xl bg-forest-deep shadow-surface transition-shadow duration-500 hover:shadow-surface-lg ${
+              className={`plate group relative rounded-4xl !bg-forest-deep transition-all duration-500 hover:-translate-y-1 hover:shadow-surface-lg ${
                 i === 0 ? 'sm:col-span-2' : ''
               }`}
               initial={shouldReduce ? {} : { opacity: 0, y: 26 }}

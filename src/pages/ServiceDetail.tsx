@@ -165,7 +165,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* Content + form */}
-      <section className="px-4 py-10 sm:px-6 lg:px-8">
+      <section className="section-y px-4 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
             <h2 className="mb-7 font-heading text-[1.5rem] leading-snug text-forest sm:text-[1.8rem]" style={{ fontWeight: 500 }}>
@@ -197,7 +197,7 @@ export default function ServiceDetail() {
               <img
                 src={service.image}
                 alt={service.imageAlt}
-                className="w-full rounded-4xl border-[6px] border-white object-cover shadow-surface"
+                className="plate w-full rounded-4xl object-cover"
                 style={{ maxHeight: '380px' }}
                 loading="lazy"
               />
@@ -224,7 +224,7 @@ export default function ServiceDetail() {
 
       {/* Other services */}
       {others.length > 0 && (
-        <section className="px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="other-services">
+        <section className="section-y px-4 sm:px-6 lg:px-8" aria-labelledby="other-services">
           <div className="mx-auto max-w-7xl">
             <h2 id="other-services" className="section-eyebrow mb-7">
               Other services
@@ -234,7 +234,7 @@ export default function ServiceDetail() {
                 <Link
                   key={other.id}
                   to={`/services/${other.id}`}
-                  className="group relative overflow-hidden rounded-4xl bg-forest-deep shadow-surface transition-shadow duration-500 hover:shadow-surface-lg"
+                  className="plate group relative rounded-4xl !bg-forest-deep transition-all duration-500 hover:-translate-y-1 hover:shadow-surface-lg"
                 >
                   <img
                     src={other.image}
@@ -268,7 +268,7 @@ export default function ServiceDetail() {
       )}
 
       {/* Closing bar */}
-      <section className="px-4 py-10 sm:px-6 lg:px-8">
+      <section className="section-y px-4 sm:px-6 lg:px-8">
         <div className="surface mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-7 py-8 sm:flex-row sm:px-10">
           <p className="font-heading text-xl text-forest" style={{ fontWeight: 500 }}>
             Ready to take the next step?

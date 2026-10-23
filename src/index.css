@@ -187,7 +187,24 @@
     font-size: clamp(0.94rem, 1.4vw, 1.0625rem);
   }
 
+  /* ---- Rhythm ----------------------------------------------------- */
+
+  /* Every top-level section uses this and nothing else. Two stacked
+     sections each carrying their own 4rem meant 8rem of empty paper
+     between them, which read as a hole rather than a break. */
+  .section-y {
+    padding-top: clamp(1.75rem, 3vw, 2.5rem);
+    padding-bottom: clamp(1.75rem, 3vw, 2.5rem);
+  }
+
   /* ---- Surfaces --------------------------------------------------- */
+
+  /* A photograph is never set straight onto the page: it sits on a white
+     mat, the same as the gallery frames, so images read as mounted
+     rather than cut out and dropped on the background. */
+  .plate {
+    @apply overflow-hidden border-[6px] border-white bg-bone-deep shadow-surface;
+  }
 
   .surface {
     @apply rounded-4xl border border-white/80 bg-white/70 shadow-surface backdrop-blur-xl;

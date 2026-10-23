@@ -24,7 +24,7 @@ export default function Hero() {
     <section className="px-4 pb-6 pt-4 sm:px-6 lg:px-8" aria-labelledby="hero-heading">
       <div className="relative mx-auto max-w-7xl">
         {/* The image is the frame: type sits on it rather than beside it. */}
-        <div className="relative overflow-hidden rounded-5xl bg-forest-deep shadow-panel">
+        <div className="plate relative rounded-5xl !bg-forest-deep shadow-panel">
           <motion.img
             src={`${BASE}/images/hero-living-room.webp`}
             alt="Bright living room with pale wall-to-wall carpet and daylight through tall windows"

@@ -106,7 +106,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
 
 export default function FAQSection() {
   return (
-    <section className="px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="faq-heading">
+    <section className="section-y px-4 sm:px-6 lg:px-8" aria-labelledby="faq-heading">
       <div className="mx-auto max-w-3xl">
         <div className="mb-10 text-center">
           <p className="section-eyebrow section-eyebrow-center mb-5">FAQ</p>

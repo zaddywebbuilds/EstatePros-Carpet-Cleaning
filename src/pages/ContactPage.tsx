@@ -23,7 +23,7 @@ export default function ContactPage() {
         intro="Send an enquiry through the form, or call during business hours. Either way you get a real answer about what the work would involve before anything is booked."
       />
 
-      <section className="px-4 py-10 sm:px-6 lg:px-8">
+      <section className="section-y px-4 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-5">
 
           {/* Details */}
@@ -126,7 +126,7 @@ export default function ContactPage() {
               </p>
             )}
 
-            <div className="mt-8 overflow-hidden rounded-4xl border-[5px] border-white shadow-surface">
+            <div className="plate mt-8 rounded-4xl">
               <iframe
                 src={mapEmbed}
                 title={`Map showing ${business.name} at ${business.addressFull}`}

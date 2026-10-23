@@ -28,7 +28,7 @@ export default function TrustBar() {
   const shouldReduce = useReducedMotion()
 
   return (
-    <section className="px-4 py-12 sm:px-6 lg:px-8" aria-label="What to expect">
+    <section className="section-y px-4 sm:px-6 lg:px-8" aria-label="What to expect">
       <div className="mx-auto max-w-7xl">
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4" role="list">
           {items.map(({ icon: Icon, label, desc }, i) => (

@@ -39,7 +39,7 @@ export default function ReviewsPage() {
         intro="Everything below comes straight from the company's Google Business Profile, quoted as written. Nothing here is commissioned, edited or invented."
       />
 
-      <section className="px-4 py-10 sm:px-6 lg:px-8">
+      <section className="section-y px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">
           {/* Rating summary */}
           <motion.div
