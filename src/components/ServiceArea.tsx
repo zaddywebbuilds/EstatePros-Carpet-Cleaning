@@ -13,8 +13,8 @@ export default function ServiceArea() {
       <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
 
         <motion.div
-          initial={shouldReduce ? {} : { opacity: 0, x: -22 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={shouldReduce ? {} : { opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '140px' }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
@@ -90,15 +90,15 @@ export default function ServiceArea() {
 
         <motion.div
           className="plate rounded-5xl shadow-surface-lg"
-          initial={shouldReduce ? {} : { opacity: 0, x: 22 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={shouldReduce ? {} : { opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '140px' }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
         >
           <iframe
             src={mapEmbed}
             title={`Map showing ${business.name} at ${business.addressFull}`}
-            className="h-[26rem] w-full border-0 lg:h-[34rem]"
+            className="h-60 w-full border-0 sm:h-80 lg:h-[32rem]"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             allowFullScreen

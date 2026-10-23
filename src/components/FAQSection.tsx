@@ -108,7 +108,7 @@ export default function FAQSection() {
   return (
     <section className="section-y px-4 sm:px-6 lg:px-8" aria-labelledby="faq-heading">
       <div className="mx-auto max-w-3xl">
-        <div className="mb-10 text-center">
+        <div className="mb-7 text-center sm:mb-9">
           <p className="section-eyebrow section-eyebrow-center mb-5">FAQ</p>
           <h2 id="faq-heading" className="section-heading">
             Common questions

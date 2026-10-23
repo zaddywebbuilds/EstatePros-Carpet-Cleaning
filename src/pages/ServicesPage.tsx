@@ -35,7 +35,7 @@ export default function ServicesPage() {
 
       {/* Editorial service blocks - alternating sides, not a repeated card grid */}
       <section className="section-y px-4 sm:px-6 lg:px-8" aria-label="Services offered">
-        <div className="max-w-7xl mx-auto space-y-6">
+        <div className="max-w-7xl mx-auto space-y-5">
           {business.services.map((service, i) => {
             const flipped = i % 2 === 1
             return (
@@ -142,7 +142,7 @@ export default function ServicesPage() {
 
       {/* Closing CTA */}
       <section className="section-y px-4 sm:px-6 lg:px-8">
-        <div className="panel-deep max-w-7xl mx-auto px-6 sm:px-12 py-16 text-center">
+        <div className="panel-deep max-w-7xl mx-auto px-5 sm:px-12 py-11 sm:py-14 text-center">
           <motion.h2
             className="font-heading text-linen leading-[1.1]"
             style={{ fontWeight: 500, fontSize: 'clamp(1.9rem, 4vw, 3rem)' }}

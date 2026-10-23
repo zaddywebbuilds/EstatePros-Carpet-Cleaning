@@ -17,7 +17,7 @@ export default function PrivacyPage() {
         </h1>
         <p className="mb-10 font-ui text-xs italic text-stone">Last updated: {year}</p>
 
-        <div className="surface space-y-8 px-7 py-9 sm:px-10">
+        <div className="surface space-y-7 px-6 py-7 sm:px-10 sm:py-9">
 
           <div>
             <h2 className="mb-3 font-heading text-lg text-forest" style={{ fontWeight: 500 }}>1. Who we are</h2>

@@ -21,18 +21,21 @@ export default function Hero() {
         }
 
   return (
-    <section className="px-4 pb-8 pt-6 sm:px-6 lg:px-8" aria-labelledby="hero-heading">
+    <section className="px-4 pb-6 pt-5 sm:px-6 lg:px-8" aria-labelledby="hero-heading">
       {/* Type and photograph sit side by side. Nothing is set over the
           picture, so the headline keeps full contrast on the page ground. */}
-      <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1fr_0.92fr] lg:gap-14">
+      <div className="mx-auto grid max-w-7xl items-center gap-7 lg:grid-cols-[1fr_0.92fr] lg:gap-14">
 
         <div>
-          <motion.div className="flex flex-wrap items-center gap-3" {...fadeUp(0)}>
-            <span className="inline-flex items-center gap-2 rounded-full border border-forest/12 bg-white/70 px-4 py-2 font-ui text-[0.68rem] uppercase tracking-[0.18em] text-stone backdrop-blur-sm">
+          <motion.div className="flex flex-wrap items-center gap-2 sm:gap-3" {...fadeUp(0)}>
+            <span className="inline-flex items-center gap-2 rounded-full border border-forest/12 bg-white/70 px-3 py-2 font-ui text-[0.6rem] uppercase tracking-[0.1em] text-stone backdrop-blur-sm sm:px-4 sm:text-[0.68rem] sm:tracking-[0.18em]">
               <MapPin size={12} strokeWidth={2.5} className="text-brass-dark" />
-              {business.city}, {business.province}
+              {/* province is dropped on a phone so this pill and the open
+                  status share one line instead of wrapping to two */}
+              {business.city}
+              <span className="hidden sm:inline">, {business.province}</span>
             </span>
-            <span className="inline-flex items-center gap-2 rounded-full border border-forest/12 bg-white/70 px-4 py-2 backdrop-blur-sm">
+            <span className="inline-flex items-center gap-2 rounded-full border border-forest/12 bg-white/70 px-3 py-2 backdrop-blur-sm sm:px-4">
               <OpenStatus />
             </span>
           </motion.div>
@@ -41,7 +44,7 @@ export default function Hero() {
             id="hero-heading"
             className="mt-7 font-heading leading-[1.02] text-forest text-balance"
             style={{
-              fontSize: 'clamp(2.5rem, 5.4vw, 4.6rem)',
+              fontSize: 'clamp(2.05rem, 5.4vw, 4.6rem)',
               fontWeight: 400,
               letterSpacing: '-0.032em',
             }}
@@ -61,7 +64,7 @@ export default function Hero() {
             and Toronto. Tell us what needs attention and we&rsquo;ll take it from there.
           </motion.p>
 
-          <motion.div className="mt-9 flex flex-wrap items-center gap-3" {...fadeUp(0.24)}>
+          <motion.div className="mt-7 flex flex-wrap items-center gap-3" {...fadeUp(0.24)}>
             <Link to="/contact" className="btn-primary">
               {business.ctaQuoteLabel}
               <ArrowRight size={15} strokeWidth={2.5} />
@@ -77,7 +80,7 @@ export default function Hero() {
             href={business.googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-9 inline-flex items-center gap-3 border-t border-forest/10 pt-7 transition-opacity hover:opacity-70"
+            className="mt-7 inline-flex items-center gap-3 border-t border-forest/10 pt-6 transition-opacity hover:opacity-70"
             {...fadeUp(0.32)}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">

@@ -17,7 +17,7 @@ export default function ClosingCTA() {
   return (
     <section className="section-y px-4 sm:px-6 lg:px-8" aria-labelledby="closing-cta-heading">
       <div className="panel-deep mx-auto max-w-7xl">
-        <div className="px-6 py-20 sm:px-12 lg:py-24">
+        <div className="px-5 py-11 sm:px-12 sm:py-14 lg:py-16">
           <div className="max-w-2xl">
             <motion.p className="section-eyebrow mb-6 !text-brass" {...reveal(0)}>
               Ready to Begin

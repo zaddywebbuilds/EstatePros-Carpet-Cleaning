@@ -18,8 +18,8 @@ export default function Footer() {
 
   return (
     <footer className="px-4 pb-28 pt-4 text-linen/80 sm:px-6 lg:px-8 lg:pb-8" role="contentinfo">
-      <div className="panel-deep mx-auto max-w-7xl px-6 py-14 sm:px-12">
-        <div className="mb-12 grid gap-12 md:grid-cols-3 lg:grid-cols-12">
+      <div className="panel-deep mx-auto max-w-7xl px-5 py-10 sm:px-12 sm:py-12">
+        <div className="mb-9 grid gap-9 md:grid-cols-3 lg:grid-cols-12 lg:gap-10">
 
           {/* Brand + contact */}
           <div className="lg:col-span-5">

@@ -29,8 +29,8 @@ export default function ContactPage() {
           {/* Details */}
           <motion.div
             className="lg:col-span-2"
-            initial={shouldReduce ? {} : { opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={shouldReduce ? {} : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
@@ -140,12 +140,12 @@ export default function ContactPage() {
           {/* Form */}
           <motion.div
             className="lg:col-span-3"
-            initial={shouldReduce ? {} : { opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={shouldReduce ? {} : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="surface-solid p-8 sm:p-10">
+            <div className="surface-solid p-6 sm:p-9">
               <h2 className="mb-2 font-heading text-2xl text-forest" style={{ fontWeight: 500 }}>
                 Request a quote
               </h2>

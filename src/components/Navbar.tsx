@@ -136,13 +136,13 @@ export default function Navbar() {
           <div className="flex items-center gap-1.5 lg:hidden">
             <a
               href={`tel:${business.phone}`}
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-forest text-linen transition-colors hover:bg-forest-light"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-forest text-linen transition-colors hover:bg-forest-light"
               aria-label={`Call ${business.name}`}
             >
               <Phone size={17} strokeWidth={2} />
             </a>
             <button
-              className="rounded-full p-2 text-forest transition-colors hover:bg-white/70"
+              className="flex h-11 w-11 items-center justify-center rounded-full text-forest transition-colors hover:bg-white/70"
               onClick={() => setOpen(!open)}
               aria-expanded={open}
               aria-controls="mobile-nav"

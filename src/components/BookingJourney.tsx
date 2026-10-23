@@ -32,8 +32,8 @@ export default function BookingJourney() {
 
   return (
     <section className="section-y px-4 sm:px-6 lg:px-8" aria-labelledby="journey-heading">
-      <div className="panel-deep mx-auto max-w-7xl px-6 py-20 sm:px-12">
-        <div className="mb-14 text-center">
+      <div className="panel-deep mx-auto max-w-7xl px-5 py-11 sm:px-10 sm:py-14 lg:py-16">
+        <div className="mb-8 text-center sm:mb-11">
           <p className="section-eyebrow section-eyebrow-center mb-5 !text-brass">How It Works</p>
           <h2
             id="journey-heading"
@@ -62,7 +62,7 @@ export default function BookingJourney() {
               viewport={{ once: true, margin: '140px' }}
               transition={{ duration: 0.6, delay: i * 0.14, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="h-full rounded-4xl border border-linen/10 bg-forest-light/50 p-7 backdrop-blur-sm transition-colors duration-300 hover:border-brass/35">
+              <div className="h-full rounded-4xl border border-linen/10 bg-forest-light/50 p-6 sm:p-7 backdrop-blur-sm transition-colors duration-300 hover:border-brass/35">
                 <div className="mb-7 flex items-start justify-between">
                   <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brass/15 text-brass">
                     <Icon size={20} strokeWidth={1.75} />
@@ -90,7 +90,7 @@ export default function BookingJourney() {
         </ol>
 
         <motion.div
-          className="mt-14 flex flex-wrap items-center justify-center gap-3"
+          className="mt-10 flex flex-wrap items-center justify-center gap-3"
           initial={shouldReduce ? {} : { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

@@ -69,7 +69,7 @@ export default function GalleryPage() {
 
       {/* CTA */}
       <section className="section-y px-4 sm:px-6 lg:px-8">
-        <div className="panel-deep max-w-7xl mx-auto px-6 sm:px-12 py-16 text-center">
+        <div className="panel-deep max-w-7xl mx-auto px-5 sm:px-12 py-11 sm:py-14 text-center">
           <motion.h2
             className="font-heading text-linen leading-[1.1]"
             style={{ fontWeight: 400, fontSize: 'clamp(1.9rem, 4vw, 3rem)', letterSpacing: '-0.025em' }}

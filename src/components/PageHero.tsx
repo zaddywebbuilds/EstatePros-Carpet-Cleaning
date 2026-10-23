@@ -29,7 +29,7 @@ export default function PageHero({ eyebrow, title, intro, image, imageAlt, backT
 
   return (
     <section className="px-4 pb-6 pt-4 sm:px-6 lg:px-8">
-      <div className="panel-deep mx-auto max-w-7xl px-6 py-16 sm:px-12 lg:py-20">
+      <div className="panel-deep mx-auto max-w-7xl px-5 py-10 sm:px-12 sm:py-12 lg:py-14">
         <div className={`grid items-center gap-12 ${image ? 'lg:grid-cols-2' : ''}`}>
           <div>
             {backTo && (
@@ -71,8 +71,8 @@ export default function PageHero({ eyebrow, title, intro, image, imageAlt, backT
             <motion.div
               className="plate hidden rounded-4xl shadow-lift lg:block"
               style={{ aspectRatio: '4 / 3' }}
-              initial={shouldReduce ? {} : { opacity: 0, x: 24 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={shouldReduce ? {} : { opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.85, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             >
               <img

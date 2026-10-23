@@ -21,7 +21,7 @@ export default function TestimonialsSection() {
     <section className="section-y px-4 sm:px-6 lg:px-8" aria-labelledby="reviews-heading">
       <div className="mx-auto max-w-5xl">
         <motion.div
-          className="mb-12 text-center"
+          className="mb-8 text-center sm:mb-10"
           initial={shouldReduce ? {} : { opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '140px' }}

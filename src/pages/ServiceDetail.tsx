@@ -175,7 +175,7 @@ export default function ServiceDetail() {
           </div>
 
           <div>
-            <div className="surface-solid p-8 lg:sticky lg:top-24">
+            <div className="surface-solid p-6 sm:p-8 lg:sticky lg:top-24">
               <h3 className="mb-2 font-heading text-xl text-forest" style={{ fontWeight: 500 }}>
                 Request a quote
               </h3>
@@ -208,7 +208,7 @@ export default function ServiceDetail() {
                       <img
                         src={other.image}
                         alt=""
-                        className="h-40 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="h-36 w-full object-cover sm:h-40 transition-transform duration-700 group-hover:scale-105"
                         loading="lazy"
                       />
                     </div>

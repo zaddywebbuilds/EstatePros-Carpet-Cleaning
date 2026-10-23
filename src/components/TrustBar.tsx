@@ -34,7 +34,7 @@ export default function TrustBar() {
           {items.map(({ icon: Icon, label, desc }, i) => (
             <motion.li
               key={label}
-              className="group surface px-6 py-7 transition-all duration-500 hover:-translate-y-1 hover:bg-white hover:shadow-surface-lg"
+              className="group surface px-5 py-6 transition-all duration-500 hover:-translate-y-1 hover:bg-white hover:shadow-surface-lg"
               initial={shouldReduce ? {} : { opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '160px' }}

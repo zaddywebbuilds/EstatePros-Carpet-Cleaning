@@ -125,7 +125,7 @@ export default function QuoteForm() {
   if (status === 'success') {
     return (
       <motion.div
-        className="text-center py-16 px-8"
+        className="px-6 py-12 text-center"
         initial={shouldReduce ? {} : { opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4 }}

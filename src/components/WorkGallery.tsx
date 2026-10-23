@@ -29,7 +29,7 @@ export default function WorkGallery() {
   return (
     <section className="section-y px-4 sm:px-6 lg:px-8" aria-labelledby="gallery-heading">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mb-7 flex flex-col gap-3 sm:mb-9 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="section-eyebrow mb-5">Up Close</p>
             <h2 id="gallery-heading" className="section-heading">
@@ -64,7 +64,7 @@ export default function WorkGallery() {
                 <img
                   src={src}
                   alt={alt}
-                  className="aspect-[4/3] w-full object-cover transition-transform duration-[900ms] ease-smooth group-hover:scale-105 lg:aspect-auto lg:h-[21rem]"
+                  className="aspect-[16/10] w-full object-cover sm:aspect-[4/3] transition-transform duration-[900ms] ease-smooth group-hover:scale-105 lg:aspect-auto lg:h-[21rem]"
                   width={768}
                   height={512}
                   loading="lazy"

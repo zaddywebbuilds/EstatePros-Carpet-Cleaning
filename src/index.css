@@ -19,6 +19,9 @@
   }
 
   html {
+    /* clip, not hidden: it stops a stray transform widening the page without
+       creating a scroll container, which would break the sticky navbar. */
+    overflow-x: clip;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -166,13 +169,13 @@
   .section-heading {
     @apply font-heading leading-[1.08] text-forest;
     font-weight: 500;
-    font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+    font-size: clamp(1.85rem, 4.4vw, 3.4rem);
   }
 
   .display-heading {
     @apply font-heading leading-[1.02] text-forest;
     font-weight: 400;
-    font-size: clamp(2.8rem, 7vw, 5.6rem);
+    font-size: clamp(2.25rem, 7vw, 5.6rem);
     letter-spacing: -0.03em;
   }
 
@@ -193,8 +196,8 @@
      sections each carrying their own 4rem meant 8rem of empty paper
      between them, which read as a hole rather than a break. */
   .section-y {
-    padding-top: clamp(1.75rem, 3vw, 2.5rem);
-    padding-bottom: clamp(1.75rem, 3vw, 2.5rem);
+    padding-top: clamp(1.15rem, 2.6vw, 2.25rem);
+    padding-bottom: clamp(1.15rem, 2.6vw, 2.25rem);
   }
 
   /* ---- Surfaces --------------------------------------------------- */

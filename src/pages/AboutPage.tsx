@@ -50,7 +50,7 @@ export default function AboutPage() {
       {/* Philosophy */}
       <section className="section-y px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="mx-auto mb-14 max-w-2xl text-center">
+          <div className="mx-auto mb-9 max-w-2xl text-center sm:mb-12">
             <motion.p className="section-eyebrow section-eyebrow-center mb-5" {...reveal()}>
               What We Believe
             </motion.p>
@@ -69,7 +69,7 @@ export default function AboutPage() {
             {values.map(({ icon: Icon, title, desc }, i) => (
               <motion.div
                 key={title}
-                className="group surface px-8 py-9 transition-all duration-500 hover:-translate-y-1 hover:bg-white hover:shadow-surface-lg"
+                className="group surface px-6 py-7 sm:px-8 transition-all duration-500 hover:-translate-y-1 hover:bg-white hover:shadow-surface-lg"
                 {...reveal(i * 0.1)}
               >
                 <span className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-sage text-forest transition-colors duration-500 group-hover:bg-forest group-hover:text-brass">
@@ -87,11 +87,11 @@ export default function AboutPage() {
 
       {/* How we work */}
       <section className="section-y px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="mx-auto grid max-w-7xl items-center gap-9 lg:grid-cols-2 lg:gap-14">
           <motion.figure
             className="relative"
-            initial={shouldReduce ? {} : { opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={shouldReduce ? {} : { opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '140px' }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >

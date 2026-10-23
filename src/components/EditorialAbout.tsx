@@ -15,12 +15,12 @@ export default function EditorialAbout() {
 
   return (
     <section className="section-y px-4 sm:px-6 lg:px-8" aria-labelledby="about-heading">
-      <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2 lg:gap-20">
+      <div className="mx-auto grid max-w-7xl items-center gap-9 lg:grid-cols-2 lg:gap-16">
 
         {/* Two plates, offset, so the column has depth rather than one flat
             photo. The margin keeps the overhanging square clear of the next
             section now that the gap between sections is tighter. */}
-        <div className="relative order-2 mb-12 sm:mb-14 lg:order-1 lg:mb-10">
+        <div className="relative order-2 mb-5 sm:mb-14 lg:order-1 lg:mb-10">
           <motion.div
             className="plate relative rounded-5xl shadow-surface-lg"
             style={{ aspectRatio: '4 / 5' }}
@@ -56,8 +56,8 @@ export default function EditorialAbout() {
           {/* The one Google review, lifted out as a pull quote */}
           <motion.figure
             className="float-card absolute -left-3 bottom-20 w-56 px-5 py-4 lg:-left-10 lg:w-64"
-            initial={shouldReduce ? {} : { opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={shouldReduce ? {} : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           >
@@ -79,7 +79,7 @@ export default function EditorialAbout() {
 
           <motion.h2
             id="about-heading"
-            className="mb-8 font-heading leading-[1.06] text-forest"
+            className="mb-6 font-heading leading-[1.06] text-forest"
             style={{ fontSize: 'clamp(2.3rem, 4.8vw, 4rem)', fontWeight: 400, letterSpacing: '-0.028em' }}
             {...reveal(0.07)}
           >
@@ -102,7 +102,7 @@ export default function EditorialAbout() {
           </motion.p>
 
           {/* Three facts, all verifiable from the Google profile */}
-          <motion.dl className="mb-10 grid max-w-lg grid-cols-3 gap-6 border-y border-forest/10 py-7" {...reveal(0.26)}>
+          <motion.dl className="mb-8 grid max-w-lg grid-cols-3 gap-5 border-y border-forest/10 py-6" {...reveal(0.26)}>
             {/* column-reverse so the value sits above its label while the
                 dt/dd order stays correct for assistive tech */}
             {[

@@ -10,7 +10,7 @@ export default function ServiceGrid() {
   return (
     <section className="section-y px-4 sm:px-6 lg:px-8" aria-labelledby="services-heading">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="mb-8 flex flex-col gap-5 sm:mb-10 md:flex-row md:items-end md:justify-between">
           <div className="max-w-xl">
             <p className="section-eyebrow mb-5">What We Do</p>
             <h2 id="services-heading" className="section-heading text-balance">
@@ -41,7 +41,7 @@ export default function ServiceGrid() {
                   <img
                     src={service.image}
                     alt={service.imageAlt}
-                    className="h-52 w-full object-cover transition-transform duration-[900ms] ease-smooth group-hover:scale-[1.04]"
+                    className="h-44 w-full object-cover sm:h-52 transition-transform duration-[900ms] ease-smooth group-hover:scale-[1.04]"
                     loading="lazy"
                   />
                 </div>
